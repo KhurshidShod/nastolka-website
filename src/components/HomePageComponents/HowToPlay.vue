@@ -27,11 +27,11 @@
 <script>
 import { rules } from '../../assets/data';
 export default {
-data(){
-    return{
-        allRules: rules
+    data() {
+        return {
+            allRules: rules
+        }
     }
-}
 }
 </script>
 <style lang="scss" scoped>
@@ -40,12 +40,12 @@ section {
     width: 100%;
     padding-top: 130px;
     padding-bottom: 150px;
-    background-image: url(/src/assets/images/howtoplay/howtoplaybg.png);
+    background: url(/src/assets/images/howtoplay/howtoplaybg.png) lightgray 0px 0px / 100.312% 99.038% no-repeat;
     background-position: center;
+    background-color: black;
     background-size: cover;
     background-attachment: local;
     background-repeat: no-repeat;
-    background-color: #010101;
     overflow: hidden;
 
     .dnevnik {
@@ -169,9 +169,11 @@ section {
                         font-weight: 400;
                         line-height: 140%;
                         z-index: 2;
-                        &::first-letter{
+
+                        &::first-letter {
                             text-transform: uppercase;
                         }
+
                         @media (max-width: 850px) {
                             font-size: 22px;
                         }

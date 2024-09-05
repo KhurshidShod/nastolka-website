@@ -23,9 +23,8 @@ section {
     width: 100%;
     height: 100vh;
     max-height: 905px;
-    background-image: url(/src/assets/images/hero/heroBg.png);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.73) 0%, rgba(0, 0, 0, 0.73) 100%), url(/src/assets/images/hero/heroBg.png) lightgray -1.562px 0px / 100.195% 99.448% no-repeat;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
