@@ -34,6 +34,11 @@
   margin-right: auto;
   padding: 0 34px;
 }
+@media (max-width: 750px) {
+  .container{
+    padding: 0 50px;
+  }
+}
 
 li {
   list-style: none;

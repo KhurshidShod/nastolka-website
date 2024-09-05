@@ -1,5 +1,7 @@
 <template lang="">
     <section>
+        <img class="question_mark1" src="/src/assets/icons/quest1.svg" alt="">
+        <img class="question_mark2" src="/src/assets/icons/quest2.svg" alt="">
         <div class="container">
             <div class="faq">
                 <div class="faq_card" v-for="ques in questions" :key="ques.id">
@@ -22,15 +24,30 @@ export default {
 </script>
 <style lang="scss" scoped>
 section {
+    position: relative;
     width: 100%;
     background-image: url(/src/assets/images/faq/faqbg.png);
     padding-top: 124px;
     padding-bottom: 170px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.938);
+    .question_mark1{
+        position: absolute;
+        left: 45px;
+        bottom: 145px;
+    }
+    .question_mark2{
+        position: absolute;
+        right: 51px;
+        top: 81px;
+    }
 
     .faq {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: stretch;
         flex-direction: row;
         flex-wrap: wrap;
@@ -44,13 +61,14 @@ section {
             justify-content: center;
             align-items: center;
             color: white;
-            flex-shrink: 0;
-            max-width: 382px;
             border-radius: 15px;
             background: var(--flags-color);
             box-shadow: inset 0px 0px 31.6px 0px rgba(0, 0, 0, 0.7);
             gap: 20px;
             padding: 1rem;
+            min-width: 200px;
+            flex-grow: 1;
+
             h1 {
                 color: #FFF;
                 text-align: center;
@@ -60,6 +78,7 @@ section {
                 font-weight: 400;
                 line-height: normal;
                 letter-spacing: 4.4px;
+                max-width: 382px;
             }
 
             p {
@@ -72,6 +91,8 @@ section {
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;
+                max-width: 382px;
+
             }
         }
     }

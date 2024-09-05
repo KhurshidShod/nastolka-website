@@ -117,7 +117,7 @@ section {
                     position: relative;
                     width: 100%;
                     max-width: 650px;
-                    min-width: 250px;
+                    min-width: 200px;
 
                     @media (max-width: 850px) {
                         width: 100%;
