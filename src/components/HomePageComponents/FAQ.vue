@@ -68,6 +68,7 @@ section {
             padding: 1rem;
             min-width: 200px;
             flex-grow: 1;
+            z-index: 2;
 
             h1 {
                 color: #FFF;

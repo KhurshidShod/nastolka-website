@@ -2,7 +2,7 @@
     <Hero />
     <HowToPlay />
     <FAQ />
-    <BestDetectives />
+    <!-- <BestDetectives /> -->
 </template>
 <script>
 import Hero from '../components/HomePageComponents/Hero.vue';
