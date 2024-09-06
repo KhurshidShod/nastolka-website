@@ -51,7 +51,7 @@ export default {
                     ease: "power2.out",
                     scrollTrigger: {
                         trigger: this.$refs.lupa,
-                        start: "top 80%",
+                        start: "top 60%",
                         end: "bottom 50%",
                         scrub: true,
                         toggleActions: "play none none reverse"
