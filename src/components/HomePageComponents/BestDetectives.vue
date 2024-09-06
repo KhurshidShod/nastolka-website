@@ -54,7 +54,7 @@ export default {
                         trigger: this.$refs.lupa,
                         start: "top 60%",
                         end: "bottom 50%",
-                        scrub: true,
+                        scrub: 1.3,
                         toggleActions: "play none none reverse"
                     }
                 }

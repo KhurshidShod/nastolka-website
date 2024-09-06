@@ -29,7 +29,7 @@ export default {
     font-size: 45px;
     font-family: 'Another Danger';
     letter-spacing: 5px;
-    letter-spacing: 8px;
+    letter-spacing: 10px;
     color: white;
 
     span {
