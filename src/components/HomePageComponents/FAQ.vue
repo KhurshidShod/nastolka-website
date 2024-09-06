@@ -33,15 +33,29 @@ section {
     background-position: top;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.938);
-    .question_mark1{
+
+    .question_mark1 {
         position: absolute;
         left: 45px;
         bottom: 145px;
+
+        @media (max-width: 1150px) {
+            width: 50px;
+            left: 45px;
+            bottom: 110px;
+        }
     }
-    .question_mark2{
+
+    .question_mark2 {
         position: absolute;
         right: 51px;
         top: 81px;
+
+        @media (max-width: 1150px) {
+            width: 50px;
+            right: 51px;
+            top: 51px;
+        }
     }
 
     .faq {
@@ -66,7 +80,7 @@ section {
             box-shadow: inset 0px 0px 31.6px 0px rgba(0, 0, 0, 0.7);
             gap: 20px;
             padding: 1rem;
-            min-width: 200px;
+            min-width: 250px;
             flex-grow: 1;
             z-index: 2;
 

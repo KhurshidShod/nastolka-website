@@ -88,7 +88,7 @@ section {
             }
 
             @media (max-width: 450px) {
-                font-size: 18px;
+                font-size: 24px;
                 letter-spacing: 7px;
             }
 
@@ -137,13 +137,13 @@ section {
                 }
 
                 @media (max-width: 650px) {
-                    width: 120px;
+                    width: 100px;
                     top: -30%;
                     right: -5%;
                 }
 
                 @media (max-width: 450px) {
-                    width: 50px;
+                    width: 75px;
                     top: 0%;
                     right: -3%;
                 }
