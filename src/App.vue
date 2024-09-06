@@ -1,7 +1,7 @@
 <template>
   <Loading :show="isLoading" />
   <Header />
-  <router-view></router-view>
+  <router-view @load="toggleLoading(false)"></router-view>
 </template>
 <script>
 import Header from './components/Header.vue';
