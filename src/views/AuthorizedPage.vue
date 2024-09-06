@@ -30,7 +30,7 @@ export default {
 section {
     width: 100%;
     padding: 220px 5rem;
-    background: url(/src/assets/images/authorized/7c75db81bb60cf3fb850e1046b37a01f.png) rgb(42, 42, 42) 50% / cover no-repeat;
+    background: url(/src/assets/images/authorized/7c75db81bb60cf3fb850e1046b37a01f.png) rgb(24, 24, 24) 50% / cover no-repeat;
 
     @media (max-width: 750px) {
         padding: 220px 0;
