@@ -60,7 +60,7 @@ section {
             }
 
             @media (max-width: 450px) {
-                font-size: 26px;
+                font-size: 32px;
             }
         }
 
