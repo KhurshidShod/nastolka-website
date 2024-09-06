@@ -141,7 +141,7 @@ section {
                     max-width: 350px;
                 }
                 @media (max-width: 460px) {
-                    font-size: 18px;
+                    font-size: 14px;
                     max-width: 300px;
                 }
             }
