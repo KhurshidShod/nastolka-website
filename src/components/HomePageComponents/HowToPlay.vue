@@ -120,6 +120,7 @@ section {
                 width: 100%;
                 flex-direction: column;
                 align-items: center;
+                gap: 100px;
             }
 
             &_group {
@@ -168,6 +169,16 @@ section {
 
                         @media (max-width: 850px) {
                             font-size: 200px;
+                            right: 10%;
+                            top: -80%;
+                        }
+                        @media (max-width: 650px) {
+                            font-size: 120px;
+                            right: 5%;
+                            top: -50%;
+                        }
+                        @media (max-width: 450px) {
+                            font-size: 80px;
                             right: 0;
                         }
                     }
@@ -183,6 +194,9 @@ section {
                         @media (max-width: 850px) {
                             font-size: 36px;
                             font-weight: 700;
+                        }
+                        @media (max-width: 650px) {
+                            font-size: 28px;
                         }
                     }
 
@@ -201,6 +215,9 @@ section {
 
                         @media (max-width: 850px) {
                             font-size: 22px;
+                        }
+                        @media (max-width: 650px) {
+                            font-size: 18px;
                         }
                     }
                 }
