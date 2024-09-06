@@ -106,7 +106,7 @@ section {
                     font-weight: 700;
                 }
                 @media (max-width: 460px) {
-                    font-size: 42px;
+                    font-size: 48px;
                     font-weight: 900;
                     letter-spacing: 5px;
                 }
@@ -141,7 +141,7 @@ section {
                     max-width: 350px;
                 }
                 @media (max-width: 460px) {
-                    font-size: 16px;
+                    font-size: 18px;
                     max-width: 250px;
                 }
             }
@@ -158,9 +158,6 @@ section {
 
             @media (max-width: 630px) {
                 font-size: 22px;
-            }
-            @media (max-width: 460px) {
-                font-size: 20px;
             }
         }
     }
