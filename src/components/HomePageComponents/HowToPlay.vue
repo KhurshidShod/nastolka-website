@@ -53,6 +53,24 @@ section {
         top: 0%;
         left: 0;
         width: 560px;
+        @media (max-width: 1100px) {
+            width: 450px;
+        }
+        @media (max-width: 900px) {
+            width: 350px;
+        }
+        @media (max-width: 750px) {
+            width: 250px;
+            top: 12%;
+        }
+        @media (max-width: 600px) {
+            width: 200px;
+            top: 12%;
+        }
+        @media (max-width: 450px) {
+            width: 150px;
+            top: 12%;
+        }
     }
 
     .howToPlay {
@@ -72,16 +90,19 @@ section {
             font-weight: 400;
             line-height: normal;
             letter-spacing: 16.28px;
-            backdrop-filter: blur(5px);
             border-radius: 5px;
             z-index: 2;
 
             @media (max-width: 900px) {
-                font-size: 64px;
+                font-size: 56px;
             }
 
             @media (max-width: 580px) {
-                font-size: 56px;
+                font-size: 48px;
+                font-weight: 700;
+            }
+            @media (max-width: 450px) {
+                font-size: 32px;
                 font-weight: 700;
             }
         }
@@ -121,7 +142,6 @@ section {
                     width: 100%;
                     max-width: 650px;
                     min-width: 200px;
-                    backdrop-filter: blur(5px);
                     border-radius: 2px;
 
                     @media (max-width: 850px) {

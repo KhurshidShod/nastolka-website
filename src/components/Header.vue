@@ -54,11 +54,11 @@ header {
     z-index: 99999;
 
     &.shrink {
-        height: 100px;
+        height: 80px;
         backdrop-filter: blur(10px);
 
         nav {
-            height: 100px !important;
+            height: 80px !important;
         }
     }
 

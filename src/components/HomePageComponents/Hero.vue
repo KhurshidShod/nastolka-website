@@ -29,20 +29,36 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    .hero_camera{
+
+    .hero_camera {
         position: absolute;
-        width: 650px;
+        width: 600px;
         right: 0%;
         top: 85%;
         // bottom: -565px;
         z-index: 2;
         min-width: 120px;
+
+        @media (max-width: 1100px) {
+            width: 450px;
+        }
+
+        @media (max-width: 900px) {
+            width: 350px;
+        }
+
+        @media (max-width: 450px) {
+            width: 250px;
+            top: 90%;
+        }
     }
+
     .hero {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         div {
             display: flex;
             flex-direction: column;
@@ -50,6 +66,10 @@ section {
             align-items: center;
             margin-bottom: 100px;
             margin-top: 100px;
+            @media (max-width: 730px) {
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
             h1 {
                 font-family: "Needleteeth";
                 leading-trim: both;
@@ -65,21 +85,30 @@ section {
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 text-align: center;
+
                 @media (max-width: 1100px) {
                     font-size: 150px;
                     font-weight: 700;
                 }
+
                 @media (max-width: 900px) {
                     font-size: 110px;
                     font-weight: 700;
                 }
+
                 @media (max-width: 730px) {
                     font-size: 80px;
                     font-weight: 700;
                 }
-                @media (max-width: 730px) {
-                    font-size: 55px;
+
+                @media (max-width: 630px) {
+                    font-size: 60px;
                     font-weight: 700;
+                }
+                @media (max-width: 460px) {
+                    font-size: 38px;
+                    font-weight: 900;
+                    letter-spacing: 5px;
                 }
             }
 
@@ -92,18 +121,46 @@ section {
                 font-style: normal;
                 font-weight: 400;
                 line-height: 140%;
+
                 @media (max-width: 1100px) {
                     max-width: 650px;
                     font-size: 22px;
                 }
+
                 @media (max-width: 900px) {
                     max-width: 550px;
                     font-size: 20px;
                 }
+
                 @media (max-width: 730px) {
                     font-size: 16px;
                     max-width: 450px;
                 }
+                @media (max-width: 630px) {
+                    font-size: 14px;
+                    max-width: 350px;
+                }
+                @media (max-width: 460px) {
+                    font-size: 12px;
+                    max-width: 250px;
+                }
+            }
+        }
+        button{
+            @media (max-width: 900px) {
+                font-size: 32px;
+            }
+
+            @media (max-width: 730px) {
+                font-size: 28px;
+                padding: 12px 20px;
+            }
+
+            @media (max-width: 630px) {
+                font-size: 22px;
+            }
+            @media (max-width: 460px) {
+                font-size: 18px;
             }
         }
     }
