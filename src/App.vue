@@ -3,15 +3,18 @@
   <div v-else>
     <Header />
     <router-view></router-view>
+    <Footer />
   </div>
 </template>
 <script>
+import Footer from './components/Footer.vue';
 import Header from './components/Header.vue';
 import Loading from './components/Loading.vue';
 export default {
   components: {
     Header,
-    Loading
+    Loading,
+    Footer
   },
   data() {
     return {
