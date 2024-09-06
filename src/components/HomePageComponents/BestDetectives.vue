@@ -87,6 +87,11 @@ section {
                 letter-spacing: 10px;
             }
 
+            @media (max-width: 450px) {
+                font-size: 18px;
+                letter-spacing: 7px;
+            }
+
             span {
                 background: linear-gradient(180deg, #CF0000 50%, #650000 99.59%);
                 background-clip: text;
@@ -136,6 +141,12 @@ section {
                     top: -30%;
                     right: -5%;
                 }
+
+                @media (max-width: 450px) {
+                    width: 50px;
+                    top: 0%;
+                    right: -3%;
+                }
             }
         }
 
@@ -163,6 +174,14 @@ section {
                 opacity: 0.8;
                 box-shadow: 0px -4px 15.6px 0px rgba(0, 0, 0, 0.42);
 
+                @media (max-width: 650px) {
+                    height: 60px;
+                }
+
+                @media (max-width: 450px) {
+                    height: 31px;
+                }
+
                 &.gold {
                     background: #3A2F05 !important;
                 }
@@ -183,6 +202,15 @@ section {
                     background: #292929;
                 }
 
+                img.number {
+                    @media (max-width: 650px) {
+                        width: 50px;
+                    }
+                    @media (max-width: 450px) {
+                        width: 22px;
+                    }
+                }
+
                 p {
                     color: #FFF;
                     text-align: center;
@@ -192,6 +220,15 @@ section {
                     font-weight: 400;
                     line-height: normal;
                     letter-spacing: -0.48px;
+
+                    
+                    @media (max-width: 650px) {
+                        font-size: 16px;
+                    }
+
+                    @media (max-width: 450px) {
+                        font-size: 11px;
+                    }
 
                     &.number {
                         width: 10%;
@@ -228,6 +265,11 @@ section {
                 width: 500px;
             }
 
+            @media (max-width: 450px) {
+                width: 100%;
+                padding: 0;
+            }
+
             img {
                 position: absolute;
                 right: -10%;
@@ -251,10 +293,17 @@ section {
                     right: -0%;
                     top: 50%;
                 }
+
                 @media (max-width: 650px) {
                     width: 270px;
                     right: -5%;
                     top: 50%;
+                }
+
+                @media (max-width: 450px) {
+                    width: 127px;
+                    right: 0%;
+                    top: 60%;
                 }
             }
 
@@ -274,8 +323,15 @@ section {
                 @media (max-width: 950px) {
                     height: 350px;
                 }
+
                 @media (max-width: 650px) {
                     height: 300px;
+                }
+
+                @media (max-width: 450px) {
+                    height: auto;
+                    padding-bottom: 2rem;
+                    gap: .5rem;
                 }
 
                 h1 {
@@ -299,6 +355,12 @@ section {
                     @media (max-width: 650px) {
                         font-size: 28px;
                     }
+
+                    @media (max-width: 450px) {
+                        font-size: 18px;
+                        font-weight: 900;
+                        letter-spacing: 5px;
+                    }
                 }
 
                 p {
@@ -313,13 +375,25 @@ section {
                     @media (max-width: 950px) {
                         font-size: 28px;
                     }
+
                     @media (max-width: 650px) {
                         font-size: 20px;
+                    }
+
+                    @media (max-width: 450px) {
+                        font-size: 11px;
                     }
                 }
 
                 button {
                     margin-top: 2rem;
+
+                    @media (max-width: 450px) {
+                        width: 80%;
+                        margin-top: 1rem;
+                        font-size: 14px;
+                        padding: 8px 14px;
+                    }
                 }
             }
         }
