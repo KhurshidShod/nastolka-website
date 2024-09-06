@@ -52,7 +52,7 @@ section {
         position: absolute;
         top: 0%;
         left: 0;
-        width: 40%;
+        width: 560px;
     }
 
     .howToPlay {

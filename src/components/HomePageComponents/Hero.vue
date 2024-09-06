@@ -31,7 +31,7 @@ section {
     align-items: center;
     .hero_camera{
         position: absolute;
-        width: 50%;
+        width: 650px;
         right: 0%;
         top: 85%;
         // bottom: -565px;
@@ -73,6 +73,14 @@ section {
                     font-size: 110px;
                     font-weight: 700;
                 }
+                @media (max-width: 730px) {
+                    font-size: 80px;
+                    font-weight: 700;
+                }
+                @media (max-width: 730px) {
+                    font-size: 55px;
+                    font-weight: 700;
+                }
             }
 
             p {
@@ -91,6 +99,10 @@ section {
                 @media (max-width: 900px) {
                     max-width: 550px;
                     font-size: 20px;
+                }
+                @media (max-width: 730px) {
+                    font-size: 16px;
+                    max-width: 450px;
                 }
             }
         }

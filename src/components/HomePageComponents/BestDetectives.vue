@@ -13,11 +13,13 @@
                         <p class="best">{{player.best}}</p>
                     </div>
                 </div>
-                <div class="login">
-                    <!-- <img src="/src/assets/images/best-detectives/medals.png" alt=""> -->
+                <div class="login_out">
+                    <img src="/src/assets/images/best-detectives/medals.png" alt="">
+                    <div class="login_inner">
                     <h1>Авторизуйтесь</h1>
                     <p> чтобы соревноваться с лучшими!</p>
                     <main-button text="АВТОРИЗОВАТЬСЯ"></main-button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,6 +41,7 @@ section {
     padding-top: 90px;
     padding-bottom: 150px;
     background: url(/src/assets/images/best-detectives/bestbg.png) rgba(0, 0, 0, 0.843) 100% / cover no-repeat;
+    overflow: hidden;
 
     .best_detectives {
         width: 100%;
@@ -58,6 +61,32 @@ section {
             letter-spacing: 16.28px;
             color: white;
 
+            @media (max-width: 1200px) {
+                font-size: 66px;
+            }
+
+            @media (max-width: 1100px) {
+                font-size: 56px;
+            }
+
+            @media (max-width: 920px) {
+                font-size: 50px;
+            }
+
+            @media (max-width: 820px) {
+                font-size: 42px;
+                font-weight: 900;
+            }
+
+            @media (max-width: 745px) {
+                font-size: 32px;
+            }
+
+            @media (max-width: 650px) {
+                font-size: 28px;
+                letter-spacing: 10px;
+            }
+
             span {
                 background: linear-gradient(180deg, #CF0000 50%, #650000 99.59%);
                 background-clip: text;
@@ -67,8 +96,46 @@ section {
 
             img {
                 position: absolute;
-                top: -85%;
-                right: -30%;
+                top: -45%;
+                right: -17%;
+                width: 300px;
+
+                @media (max-width: 1200px) {
+                    width: 250px;
+                    top: -40%;
+                    right: -14%;
+                }
+
+                @media (max-width: 1100px) {
+                    width: 200px;
+                    top: -35%;
+                    right: -7%;
+                    transform: rotate(20deg);
+                }
+
+                @media (max-width: 920px) {
+                    width: 175px;
+                    top: -30%;
+                    right: -5%;
+                }
+
+                @media (max-width: 820px) {
+                    width: 150px;
+                    top: -30%;
+                    right: -7%;
+                }
+
+                @media (max-width: 745px) {
+                    width: 120px;
+                    top: -30%;
+                    right: -5%;
+                }
+
+                @media (max-width: 650px) {
+                    width: 120px;
+                    top: -30%;
+                    right: -5%;
+                }
             }
         }
 
@@ -79,6 +146,10 @@ section {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+
+            @media (max-width: 745px) {
+                width: 100%;
+            }
 
             .rating {
                 width: 100%;
@@ -139,50 +210,117 @@ section {
             }
         }
 
-        .login {
+        .login_out {
             position: relative;
-            width: 70%;
+            width: 850px;
             padding: 2rem;
-            height: 450px;
             margin-top: 220px;
             display: flex;
             justify-content: start;
             align-items: center;
             flex-direction: column;
-            gap: 1rem;
-            background: url(/src/assets/images/best-detectives/loginbg.png) 0px -0.975px / 100% 100.179% no-repeat;
-            box-shadow: 0px 56px 56px 0px rgba(0, 0, 0, 0.17), 0px 14px 31px 0px rgba(0, 0, 0, 0.20);
-            img{
+
+            @media (max-width: 950px) {
+                width: 650px;
+            }
+
+            @media (max-width: 650px) {
+                width: 500px;
+            }
+
+            img {
                 position: absolute;
-                right: 0;
-                top: 50%;
-            }
-            h1 {
-                text-align: center;
-                font-family: "Another Danger";
-                font-size: 74px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                letter-spacing: 16.28px;
-                background: linear-gradient(180deg, #CF0000 50%, #650000 99.59%);
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+                right: -10%;
+                top: 45%;
+                width: 450px;
+
+                @media (max-width: 1050px) {
+                    width: 350px;
+                    right: -5%;
+                    top: 50%;
+                }
+
+                @media (max-width: 950px) {
+                    width: 300px;
+                    right: -5%;
+                    top: 50%;
+                }
+
+                @media (max-width: 850px) {
+                    width: 270px;
+                    right: -0%;
+                    top: 50%;
+                }
+                @media (max-width: 650px) {
+                    width: 270px;
+                    right: -5%;
+                    top: 50%;
+                }
             }
 
-            p {
-                color: #272727;
-                text-align: center;
-                font-family: 'Roboto';
-                font-size: 32px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-            }
+            .login_inner {
+                width: 100%;
+                height: 450px;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                flex-direction: column;
+                background: url(/src/assets/images/best-detectives/loginbg.png) 0px -0.975px / 100% 100.179% no-repeat;
+                box-shadow: 0px 56px 56px 0px rgba(0, 0, 0, 0.17), 0px 14px 31px 0px rgba(0, 0, 0, 0.20);
+                gap: 1rem;
+                z-index: 2;
+                padding: 2rem;
 
-            button {
-                margin-top: 2rem;
+                @media (max-width: 950px) {
+                    height: 350px;
+                }
+                @media (max-width: 650px) {
+                    height: 300px;
+                }
+
+                h1 {
+                    text-align: center;
+                    font-family: "Another Danger";
+                    font-size: 74px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    letter-spacing: 16.28px;
+                    background: linear-gradient(180deg, #CF0000 50%, #650000 99.59%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+
+                    @media (max-width: 950px) {
+                        font-size: 48px;
+                        font-weight: 700;
+                    }
+
+                    @media (max-width: 650px) {
+                        font-size: 28px;
+                    }
+                }
+
+                p {
+                    color: #272727;
+                    text-align: center;
+                    font-family: 'Roboto';
+                    font-size: 32px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+
+                    @media (max-width: 950px) {
+                        font-size: 28px;
+                    }
+                    @media (max-width: 650px) {
+                        font-size: 20px;
+                    }
+                }
+
+                button {
+                    margin-top: 2rem;
+                }
             }
         }
     }
