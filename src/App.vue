@@ -1,7 +1,9 @@
 <template>
-  <Loading :show="isLoading" />
-  <Header />
-  <router-view @load="toggleLoading(false)"></router-view>
+  <Loading v-if="isLoading" />
+  <div v-else>
+    <Header />
+    <router-view></router-view>
+  </div>
 </template>
 <script>
 import Header from './components/Header.vue';
@@ -18,15 +20,10 @@ export default {
   },
   created() {
     // Simulate loading delay or fetch data
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000); // 2 seconds loading time
-  },
-  methods: {
-    toggleLoading(status) {
-      this.isLoading = status;
-    },
-  },
+    window.addEventListener("load", () => {
+      this.isLoading = false
+    })
+  }
 }
 </script>
 <style scoped></style>
