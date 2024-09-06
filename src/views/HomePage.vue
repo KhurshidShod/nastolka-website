@@ -20,7 +20,7 @@ export default {
         FAQ,
         BestDetectives,
         Magazine,
-        Footer
+        Footer,
     }
 }
 </script>

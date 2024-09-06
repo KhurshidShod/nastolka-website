@@ -26,6 +26,7 @@
 </template>
 <script>
 import { rules } from '../../assets/data';
+
 export default {
     data() {
         return {

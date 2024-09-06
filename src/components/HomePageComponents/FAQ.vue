@@ -19,6 +19,21 @@ export default {
         return {
             questions: questions
         }
+    },
+    mounted() {
+        this.handleMouseMove();
+    },
+    methods: {
+        handleMouseMove() {
+            const questionMark1 = this.$el.querySelector('.question_mark1');
+            const questionMark2 = this.$el.querySelector('.question_mark2');
+
+            document.addEventListener('mousemove', (event) => {
+                const { clientX: x, clientY: y } = event;
+                questionMark1.style.transform = `translate(${(x - window.innerWidth / 2) * 0.05}px, ${(y - window.innerHeight / 2) * 0.05}px)`;
+                questionMark2.style.transform = `translate(${(x - window.innerWidth / 2) * 0.05}px, ${(y - window.innerHeight / 2) * 0.05}px)`;
+            });
+        }
     }
 }
 </script>

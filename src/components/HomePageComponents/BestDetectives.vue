@@ -2,7 +2,7 @@
     <section>
         <div class="container">
             <div class="best_detectives">
-                <h1><span>ЛУЧШИЕ</span> ДЕТЕКТИВЫ <img src="/src/assets/images/best-detectives/d25914a2a059b9bdc9a4eb22ac03c56d.png" alt=""></h1>
+                <h1><span>ЛУЧШИЕ</span> ДЕТЕКТИВЫ <img ref="lupa" src="/src/assets/images/best-detectives/d25914a2a059b9bdc9a4eb22ac03c56d.png" alt=""></h1>
                 <div class="ratings">
                     <div :class="{'gold': index+1 === 1, 'silver': index+1 === 2, 'bronze': index+1 === 3}" class="rating" v-for="(player, index) in players" :key="player.id">
                         <img v-if="index + 1 === 1" class="number" src="/src/assets/images/best-detectives/Gold.svg" alt="">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="login_out">
-                    <img src="/src/assets/images/best-detectives/medals.png" alt="">
+                    <img class="medals" src="/src/assets/images/best-detectives/medals.png" alt="">
                     <div class="login_inner">
                     <h1>Авторизуйтесь</h1>
                     <p> чтобы соревноваться с лучшими!</p>
@@ -27,10 +27,45 @@
 </template>
 <script>
 import { players } from '../../assets/data';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 export default {
     data() {
         return {
             players: players
+        }
+    },
+    mounted() {
+        this.animateLupa();
+        this.handleMouseMove();
+    },
+    methods: {
+        animateLupa() {
+            gsap.fromTo(
+                this.$refs.lupa,
+                { x: 300, opacity: 0 },
+                {
+                    x: 0, opacity: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: this.$refs.lupa,
+                        start: "top 80%",
+                        end: "bottom 50%",
+                        scrub: true,
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        },
+        handleMouseMove() {
+            const medals = this.$el.querySelector('.medals');
+
+            document.addEventListener('mousemove', (event) => {
+                const { clientX: x, clientY: y } = event;
+                medals.style.transform = `translate(${(x - window.innerWidth / 2) * 0.05}px, ${(y - window.innerHeight / 2) * 0.05}px)`;
+            });
         }
     }
 }
@@ -206,6 +241,7 @@ section {
                     @media (max-width: 650px) {
                         width: 50px;
                     }
+
                     @media (max-width: 450px) {
                         width: 35px;
                     }
@@ -221,7 +257,7 @@ section {
                     line-height: normal;
                     letter-spacing: -0.48px;
 
-                    
+
                     @media (max-width: 650px) {
                         font-size: 16px;
                     }
@@ -315,7 +351,6 @@ section {
                 align-items: center;
                 flex-direction: column;
                 background: url(/src/assets/images/best-detectives/loginbg.png) 0px -0.975px / 100% 100.179% no-repeat;
-                box-shadow: 0px 56px 56px 0px rgba(0, 0, 0, 0.17), 0px 14px 31px 0px rgba(0, 0, 0, 0.20);
                 gap: 1rem;
                 z-index: 2;
                 padding: 2rem;
