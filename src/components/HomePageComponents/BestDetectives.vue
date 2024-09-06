@@ -45,10 +45,11 @@ export default {
         animateLupa() {
             gsap.fromTo(
                 this.$refs.lupa,
-                { x: 300, opacity: 0 },
+                { x: 500, opacity: 0 },
                 {
                     x: 0, opacity: 1,
                     ease: "power2.out",
+                    duration: 5,
                     scrollTrigger: {
                         trigger: this.$refs.lupa,
                         start: "top 60%",
