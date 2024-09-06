@@ -72,6 +72,9 @@ section {
             font-weight: 400;
             line-height: normal;
             letter-spacing: 16.28px;
+            backdrop-filter: blur(5px);
+            border-radius: 5px;
+            z-index: 2;
 
             @media (max-width: 900px) {
                 font-size: 64px;
@@ -118,6 +121,8 @@ section {
                     width: 100%;
                     max-width: 650px;
                     min-width: 200px;
+                    backdrop-filter: blur(5px);
+                    border-radius: 2px;
 
                     @media (max-width: 850px) {
                         width: 100%;
