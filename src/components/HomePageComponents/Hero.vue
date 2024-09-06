@@ -142,7 +142,7 @@ section {
                 }
                 @media (max-width: 460px) {
                     font-size: 18px;
-                    max-width: 250px;
+                    max-width: 300px;
                 }
             }
         }
