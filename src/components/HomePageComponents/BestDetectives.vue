@@ -179,7 +179,7 @@ section {
                 }
 
                 @media (max-width: 450px) {
-                    height: 31px;
+                    height: 50px;
                 }
 
                 &.gold {
@@ -207,7 +207,7 @@ section {
                         width: 50px;
                     }
                     @media (max-width: 450px) {
-                        width: 22px;
+                        width: 35px;
                     }
                 }
 
@@ -227,7 +227,7 @@ section {
                     }
 
                     @media (max-width: 450px) {
-                        font-size: 11px;
+                        font-size: 14px;
                     }
 
                     &.number {
