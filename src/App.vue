@@ -18,12 +18,12 @@ export default {
       isLoading: true,
     };
   },
-  created() {
-    // Simulate loading delay or fetch data
-    window.addEventListener("load", () => {
-      this.isLoading = false
-    })
-  }
+  mounted() {
+    // Set up the window.onload event to hide the loader once the page is fully loaded
+    window.onload = () => {
+      this.isLoading = false;
+    };
+  },
 }
 </script>
 <style scoped></style>
