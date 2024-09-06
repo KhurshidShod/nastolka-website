@@ -2,8 +2,7 @@
   <div class="loading">
     <div class="fingerprint"></div>
     <h1>
-      Опрос свидетелей... <br>
-      Скоро начнётся расследование!
+      Опрос <span>свидетелей</span>...
     </h1>
   </div>
 </template>
@@ -31,7 +30,12 @@ export default {
     font-family: 'Another Danger';
     letter-spacing: 5px;
     letter-spacing: 8px;
-    color: #A60139;
+    color: white;
+
+    span {
+      color: #980735;
+      ;
+    }
   }
 
   .fingerprint {
@@ -62,9 +66,9 @@ export default {
       left: 0;
       width: 80%;
       height: 8px;
-      background: #A60139;
+      background: #980735;
       border-radius: 8px;
-      filter: drop-shadow(0 0 20px #A60139) drop-shadow(0 0 60px #A60139);
+      filter: drop-shadow(0 0 20px #980735) drop-shadow(0 0 60px #980735);
       animation: animateLine 4s ease-in-out infinite
     }
   }
