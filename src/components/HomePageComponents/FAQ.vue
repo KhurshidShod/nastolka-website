@@ -1,5 +1,5 @@
 <template lang="">
-    <section>
+    <section id="faq">
         <img class="question_mark1" src="/src/assets/icons/quest1.svg" alt="">
         <img class="question_mark2" src="/src/assets/icons/quest2.svg" alt="">
         <div class="container">

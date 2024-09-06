@@ -1,8 +1,8 @@
 <template lang="">
-    <section>
+    <section id="magasine">
         <div class="container">
             <div class="magasine">
-                <h1>магазин</h1>
+                <h1 class="magasine_heading">магазин</h1>
                 <div class="items">
                     <div class="item">
                         <div>
@@ -12,6 +12,13 @@
                         <main-button text="РАССЛЕДОВАТЬ"></main-button>
                         </div>
                         <img src="/src/assets/images/magazine/185480d0cf28dd4355da38b3223e42a5.png" alt="">
+                    </div>
+                    <div class="item_skoro">
+                        <div>
+                            <h3>Яхта Бейджера</h3>
+                        <p>здесь можно вставить кртакое описание сюжета конкретной игры</p>
+                        </div>
+                        <h1>скоро...</h1>
                     </div>
                 </div>
             </div>
@@ -27,7 +34,7 @@ export default {
 section {
     width: 100%;
     background: url(/src/assets/images/magazine/magazinebg.png) rgb(36, 36, 36) -4.678px 0px / 129.071% 96.46% no-repeat;
-    padding-top: 3rem;
+    padding-top: 5rem;
     padding-bottom: 3rem;
 
     .magasine {
@@ -38,7 +45,7 @@ section {
         flex-direction: column;
         gap: 5rem;
 
-        h1 {
+        &_heading {
             text-align: center;
             font-family: "Another Danger";
             font-size: 72px;
@@ -70,6 +77,7 @@ section {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            gap: 5rem;
 
             @media (max-width: 1050px) {
                 width: 100%;
@@ -202,6 +210,107 @@ section {
                     @media (max-width: 350px) {
                         width: 150px !important;
                         border-radius: 6px;
+                    }
+                }
+            }
+
+            .item_skoro {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                border-radius: 56px;
+                background: #222;
+                box-shadow: inset 0px 0px 6.452px 0px rgba(0, 0, 0, 0.45);
+                padding: 75px;
+                max-width: 1100px;
+
+                @media (max-width: 800px) {
+                    flex-direction: column;
+                }
+
+                @media (max-width: 600px) {
+                    padding: 2rem;
+                }
+
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: start;
+                    flex-direction: column;
+                    gap: 1rem;
+                    width: 50%;
+
+                    @media (max-width: 800px) {
+                        align-items: center;
+                        gap: 1rem;
+                    }
+
+                    @media (max-width: 450px) {
+                        gap: 10px;
+                    }
+
+                    @media (max-width: 800px) {
+                        width: 100%;
+                    }
+
+                    h3 {
+                        color: #F0F0F0;
+                        font-family: 'Roboto';
+                        font-size: 42px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+
+                        @media (max-width: 800px) {
+                            font-size: 32px;
+                            text-align: center;
+                        }
+
+                        @media (max-width: 650px) {
+                            font-size: 24px;
+                            text-align: center;
+                        }
+
+                        @media (max-width: 350px) {
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                    }
+
+                    p {
+                        color: #F0F0F0;
+                        font-family: 'Roboto';
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 140%;
+
+                        @media (max-width: 800px) {
+                            display: none;
+                        }
+                    }
+                }
+
+                h1 {
+                    color: #FFF;
+                    text-align: center;
+                    font-family: "Another Danger";
+                    font-size: 74px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    letter-spacing: 16.28px;
+                    @media (max-width: 750px) {
+                        font-size: 68px;
+                    }
+                    @media (max-width: 600px) {
+                        font-size: 58px;
+                    }
+                    @media (max-width: 450px) {
+                        font-size: 36px;
+                        letter-spacing: 8px;
                     }
                 }
             }

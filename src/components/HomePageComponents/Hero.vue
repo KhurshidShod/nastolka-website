@@ -1,5 +1,5 @@
 <template lang="">
-    <section>
+    <section id="main">
         <img class="hero_camera" src="/src/assets/images/hero/camera.png" alt="">
         <div class="container">
             <div class="hero">
