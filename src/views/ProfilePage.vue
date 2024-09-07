@@ -104,7 +104,7 @@ section {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    padding: 9px 35px;
+                    padding: 9px 30px;
                     align-items: center;
                     gap: 31px;
                     border-radius: 20px;
@@ -112,7 +112,7 @@ section {
                     color: #FEFEFF;
                     text-align: center;
                     font-family: 'Roboto';
-                    font-size: 36px;
+                    font-size: 30px;
                     font-style: normal;
                     font-weight: 400;
                     line-height: 140%;
@@ -121,6 +121,7 @@ section {
                     @media (max-width: 900px) {
                         font-size: 22px;
                         padding: 9px 15px;
+                        border-radius: 15px;
                     }
 
                     @media (max-width: 750px) {
@@ -128,6 +129,7 @@ section {
                         letter-spacing: 3px;
                         padding: 5px 10px;
                         gap: 15px;
+                        border-radius: 7px;
                     }
                 }
 
