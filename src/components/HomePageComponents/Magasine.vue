@@ -4,14 +4,14 @@
             <div class="magasine">
                 <h1 class="magasine_heading">магазин</h1>
                 <div class="items">
-                    <div class="item">
+                    <div class="item" v-for="(casee, index) in cases" :key="casee.id">
                         <div>
-                            <h3>Загадочное убийство на вилле Кортни</h3>
-                            <p>здесь можно вставить краткое описание сюжета конкретной игры</p>
-                        <img src="/src/assets/images/magazine/185480d0cf28dd4355da38b3223e42a5.png" alt="">
-                        <main-button text="РАССЛЕДОВАТЬ"></main-button>
+                            <h3>{{casee.title}}</h3>
+                            <p>{{casee.description.split(" ").slice(0, 10).join(" ")}}...</p>
+                        <img :src="casee.image" alt="">
+                        <main-button @click.prevent="redirect(casee.title)" text="РАССЛЕДОВАТЬ"></main-button>
                         </div>
-                        <img src="/src/assets/images/magazine/185480d0cf28dd4355da38b3223e42a5.png" alt="">
+                        <img :src="casee.image" alt="">
                     </div>
                     <div class="item_skoro">
                         <div>
@@ -26,8 +26,18 @@
     </section>
 </template>
 <script>
+import { cases } from '../../assets/data';
 export default {
-
+    data() {
+        return {
+            cases: cases
+        }
+    },
+    methods: {
+        redirect(title){
+            this.$router.push(`/cases/${title.toLowerCase().split(" ").join("-")}`)
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -302,12 +312,15 @@ section {
                     font-weight: 400;
                     line-height: normal;
                     letter-spacing: 16.28px;
+
                     @media (max-width: 750px) {
                         font-size: 68px;
                     }
+
                     @media (max-width: 600px) {
                         font-size: 58px;
                     }
+
                     @media (max-width: 450px) {
                         font-size: 36px;
                         letter-spacing: 8px;

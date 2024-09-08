@@ -44,54 +44,64 @@ export const questions = [
 ];
 
 export const players = [
-    {
-        id: 0,
-        name: "Player 1",
-        best: "11111111"
-    },
-    {
-        id: 1,
-        name: "Player 2",
-        best: "22222222"
-    },
-    {
-        id: 2,
-        name: "Player 3",
-        best: "33333333"
-    },
-    {
-        id: 3,
-        name: "Player 4",
-        best: "44444444"
-    },
-    {
-        id: 4,
-        name: "Player 5",
-        best: "55555555"
-    },
-    {
-        id: 5,
-        name: "Player 6",
-        best: "66666666"
-    },
-    {
-        id: 6,
-        name: "Player 7",
-        best: "77777777"
-    },
-    {
-        id: 7,
-        name: "Player 8",
-        best: "88888888"
-    },
-    {
-        id: 8,
-        name: "Player 9",
-        best: "99999999"
-    },
-    {
-        id: 9,
-        name: "Player 10",
-        best: "1010101010"
-    }
-]
+  {
+    id: 0,
+    name: "Player 1",
+    best: "11111111",
+  },
+  {
+    id: 1,
+    name: "Player 2",
+    best: "22222222",
+  },
+  {
+    id: 2,
+    name: "Player 3",
+    best: "33333333",
+  },
+  {
+    id: 3,
+    name: "Player 4",
+    best: "44444444",
+  },
+  {
+    id: 4,
+    name: "Player 5",
+    best: "55555555",
+  },
+  {
+    id: 5,
+    name: "Player 6",
+    best: "66666666",
+  },
+  {
+    id: 6,
+    name: "Player 7",
+    best: "77777777",
+  },
+  {
+    id: 7,
+    name: "Player 8",
+    best: "88888888",
+  },
+  {
+    id: 8,
+    name: "Player 9",
+    best: "99999999",
+  },
+  {
+    id: 9,
+    name: "Player 10",
+    best: "1010101010",
+  },
+];
+
+export const cases = [
+  {
+    id: 0,
+    title: "Загадочное убийство на вилле Кортни",
+    description:
+      "11 июля 2020 года в маленьком городке Роадленд произошло шокирующее убийство Оливии Грин. Девушка была убита в собственном доме. Полиция арестовала Джейка Робинсона. Суд приговорил его к смертной казне. Ваша работа – изучить материалы дела, опровергнуть вину Джейка и найти настоящего убийцу.",
+    image: "/src/assets/images/magazine/185480d0cf28dd4355da38b3223e42a5.png",
+  },
+];

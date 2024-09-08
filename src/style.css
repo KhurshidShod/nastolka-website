@@ -1,15 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @font-face {
-  font-family: 'Needleteeth';
+  font-family: "Needleteeth";
   src: url(/src/assets/fonts/NeedleteethSP_0.otf);
 }
 @font-face {
-  font-family: 'Another Danger';
-  src: url(/src/assets/fonts/ofont.ru_AnotherDanger.ttf);
+  font-family: "Another Danger";
+  src: url(/src/assets/fonts/AnotherDanger.ttf);
 }
 @font-face {
-  font-family: 'LT Remark';
+  font-family: "LT Remark";
   src: url(/src/assets/fonts/lt_remark/LTRemark-Bold.otf);
+}
+@font-face {
+  font-family: "Downcome(RUS BY LYAJKA)";
+  src: url(/src/assets/fonts/downcome.otf);
 }
 * {
   margin: 0;
@@ -35,12 +39,12 @@
   padding: 0 34px;
 }
 @media (max-width: 750px) {
-  .container{
+  .container {
     padding: 0 50px;
   }
 }
 @media (max-width: 550px) {
-  .container{
+  .container {
     padding: 0 20px;
   }
 }

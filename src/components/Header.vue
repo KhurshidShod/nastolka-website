@@ -80,6 +80,7 @@ header {
     z-index: 99999;
 
     &.shrink {
+        width: 100%;
         height: 80px;
         backdrop-filter: blur(10px);
 

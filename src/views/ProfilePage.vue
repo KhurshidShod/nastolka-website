@@ -5,7 +5,7 @@
                 <div class="games">
                     <div class="game">
                         <h1>ВРЕМЯ, ПРОВЕДЁННОЕ ЗА РАССЛЕДОВАНИЕМ:</h1>
-                        <p class="finished_time">
+                        <p @click.prevent="console.log($route)" class="finished_time">
                             <span>12 ч</span>
                             <span>43 мин</span>
                             <span>21 сек</span>
