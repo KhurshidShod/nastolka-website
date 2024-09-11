@@ -24,7 +24,7 @@ export default {
   created() {
     setTimeout(() => {
       this.isLoading = false;
-    }, 4000000000000);
+    }, 5000);
   }
 }
 </script>
