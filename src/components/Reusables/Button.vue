@@ -24,12 +24,6 @@ export default {
             type: Number,
             required: true
         },
-    },
-    mounted() {
-        console.log(this.text)
-        console.log(this.padInline)
-        console.log(this.padBlock)
-        console.log(this.fontSize)
     }
 }
 </script>
