@@ -15,11 +15,11 @@ const router = createRouter({
     { path: "/", component: HomePage, name: "Home" },
     { path: "/authorized", component: AuthorizedPage, name: "Authorized" },
     { path: "/profile", component: ProfilePage, name: "Profile" },
-    { path: "/case/:case", component: CasePage, name: "Case"},
+    { path: "/case", component: CasePage, name: "Case"},
     { path: "/case/play/:case", component: CaseAuthorizedPage, name: "Case Authorized"},
     { path: "/:case/true", component: TrueAnswer, name: "True Answer"},
     { path: "/:case/false", component: FalsePage, name: "False Answer"},
-    { path: "/:case/:taskNum", component: TaskPage, name: "Task"},
+    { path: "/:case/playground/:taskNum", component: TaskPage, name: "Task"},
     { path: "/:case/confirmation", component: EnterCodePage, name: "Confirmation"}
   ]
 });

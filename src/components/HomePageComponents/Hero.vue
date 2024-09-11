@@ -9,13 +9,19 @@
                     об убийстве. Изучите улики, алиби и найдите настоящего убийцу!
                 </p>
                 </div>
-                <main-button text="РАЗГАДАТЬ ДЕЛО" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
+                <main-button @click.prevent="redirect()" text="РАЗГАДАТЬ ДЕЛО" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
             </div>
         </div>
     </section>
 </template>
-<script setup>
-
+<script>
+export default {
+    methods: {
+        redirect() {
+            $router.push("/case")
+        }
+    }
+}
 </script>
 <style lang="scss" scoped>
 section {
@@ -66,10 +72,12 @@ section {
             align-items: center;
             margin-bottom: 100px;
             margin-top: 100px;
+
             @media (max-width: 730px) {
                 margin-top: 50px;
                 margin-bottom: 50px;
             }
+
             h1 {
                 font-family: "Needleteeth";
                 leading-trim: both;
@@ -105,6 +113,7 @@ section {
                     font-size: 60px;
                     font-weight: 700;
                 }
+
                 @media (max-width: 460px) {
                     font-size: 48px;
                     font-weight: 900;
@@ -136,17 +145,20 @@ section {
                     font-size: 16px;
                     max-width: 450px;
                 }
+
                 @media (max-width: 630px) {
                     font-size: 14px;
                     max-width: 350px;
                 }
+
                 @media (max-width: 460px) {
                     font-size: 12px;
                     max-width: 300px;
                 }
             }
         }
-        button{
+
+        button {
             @media (max-width: 900px) {
                 font-size: 32px;
             }

@@ -2,37 +2,46 @@
     <section>
         <div class="container">
             <div class="task">
+                <div class="more__choosen" :class="{'open': moreChoosen}">
+                    <div class="error">
+                        <h1>Ошибка!</h1>
+                        <p>Выбрано больше двух документов</p>
+                        <svg @click.prevent="moreChoosen = false" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+                            <path d="M9.48531 23.3988C9.07781 23.8063 9.07781 24.4669 9.48531 24.8744C9.89281 25.2819 10.5535 25.2819 10.961 24.8744L9.48531 23.3988ZM17.9175 17.9179C18.325 17.5104 18.325 16.8498 17.9175 16.4423C17.51 16.0347 16.8494 16.0347 16.4419 16.4423L17.9175 17.9179ZM16.4419 16.4423C16.0344 16.8498 16.0344 17.5104 16.4419 17.9179C16.8494 18.3254 17.51 18.3254 17.9175 17.9179L16.4419 16.4423ZM24.8741 10.9614C25.2816 10.5539 25.2816 9.89318 24.8741 9.48568C24.4665 9.07818 23.8059 9.07818 23.3984 9.48568L24.8741 10.9614ZM17.9175 16.4423C17.51 16.0347 16.8494 16.0347 16.4419 16.4423C16.0344 16.8498 16.0344 17.5104 16.4419 17.9179L17.9175 16.4423ZM23.3984 24.8744C23.8059 25.2819 24.4665 25.2819 24.8741 24.8744C25.2816 24.4669 25.2816 23.8063 24.8741 23.3988L23.3984 24.8744ZM16.4419 17.9179C16.8494 18.3254 17.51 18.3254 17.9175 17.9179C18.325 17.5104 18.325 16.8498 17.9175 16.4423L16.4419 17.9179ZM10.961 9.48568C10.5535 9.07818 9.89281 9.07818 9.48531 9.48568C9.07781 9.89318 9.07781 10.5539 9.48531 10.9614L10.961 9.48568ZM10.961 24.8744L17.9175 17.9179L16.4419 16.4423L9.48531 23.3988L10.961 24.8744ZM17.9175 17.9179L24.8741 10.9614L23.3984 9.48568L16.4419 16.4423L17.9175 17.9179ZM16.4419 17.9179L23.3984 24.8744L24.8741 23.3988L17.9175 16.4423L16.4419 17.9179ZM17.9175 16.4423L10.961 9.48568L9.48531 10.9614L16.4419 17.9179L17.9175 16.4423Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
                 <h2>Вы можете доказать невиновность Джейка Робинсона?</h2>
                 <span>Выберите 2
                     документа, которые опровергают его вину</span>
                 <ul>
                     <li>
-                        <input type="checkbox" name="" id="1">
+                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 1" type="checkbox" name="" id="1">
                         <label for="1">Ответ на запрос Питеру Грину</label>
                     </li>
                     <li>
-                        <input type="checkbox" name="" id="2">
+                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 2" type="checkbox" name="" id="2">
                         <label for="2">Ответ на запрос Питеру Грину</label>
                     </li>
                     <li>
-                        <input type="checkbox" name="" id="3">
+                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 3" type="checkbox" name="" id="3">
                         <label for="3">Ответ на запрос Питеру Грину</label>
                     </li>
                     <li>
-                        <input type="checkbox" name="" id="4">
+                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 4" type="checkbox" name="" id="4">
                         <label for="4">Ответ на запрос Питеру Грину</label>
                     </li>
                     <li>
-                        <input type="checkbox" name="" id="5">
+                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 5" type="checkbox" name="" id="5">
                         <label for="5">Ответ на запрос Питеру Грину</label>
                     </li>
                     <li>
-                        <input type="checkbox" name="" id="6">
+                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 6" type="checkbox" name="" id="6">
                         <label for="6">Ответ на запрос Питеру Грину</label>
                     </li>
 
                     <li>
-                        <input type="checkbox" name="" id="7">
+                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 7" type="checkbox" name="" id="7">
                         <label for="7">Ответ на запрос Питеру Грину</label>
                     </li>
                 </ul>
@@ -67,12 +76,29 @@ export default {
             firstHelpOpen: false,
             secondHelpOpen: false,
             case: null,
+            selectedAnswers: [],
+            moreChoosen: false
         }
     },
     mounted() {
         console.log(this.case)
         this.case = cases.find(cs => cs.title.toLowerCase() === this.$route.params.case.toLowerCase().split("-").join(" "))
             ?.caseQuestions.find(ques => ques.id == this.$route.params.taskNum)
+    },
+    methods: {
+        addToAnswers(e) {
+            if (this.selectedAnswers.length < 2) {
+                if (this.selectedAnswers.includes(e.target.value)) {
+                    this.selectedAnswers = this.selectedAnswers.filter(ans => ans !== e.target.value)
+                } else {
+                    this.selectedAnswers.push(e.target.value)
+                }
+            } else {
+                this.moreChoosen = true;
+                return;
+            }
+            console.log(this.selectedAnswers)
+        }
     }
 }
 </script>
@@ -80,7 +106,7 @@ export default {
 section {
     width: 100%;
     padding-block: 150px;
-    background: url(/src/assets/images/handbg.png) lightgray 50% / cover no-repeat;
+    background: url(/src/assets/images/handbg.png) rgb(43, 43, 43) 50% / cover no-repeat;
 
     .container {
         @media (max-width: 750px) {
@@ -103,6 +129,62 @@ section {
         align-items: center;
         flex-direction: column;
         gap: 2rem;
+
+        .more__choosen {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(2px);
+            position: fixed;
+            z-index: 999999;
+            justify-content: center;
+            align-items: center;
+
+            &.open {
+                display: flex;
+            }
+
+            .error {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 2rem 1.5rem;
+                border-radius: 40px;
+                background: rgba(30, 30, 30, 0.92);
+                backdrop-filter: blur(5.0071940422058105px);
+
+                svg {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    cursor: pointer;
+                }
+
+                h1 {
+                    color: #FFF;
+                    font-family: 'Roboto';
+                    font-size: 32px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                }
+
+                p {
+                    color: #FFF;
+                    text-align: center;
+                    font-family: 'Roboto';
+                    font-size: 22px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+        }
 
         @media (max-width: 750px) {
             padding-right: 10px;

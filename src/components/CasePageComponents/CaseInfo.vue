@@ -2,8 +2,12 @@
     <section>
         <div class="container">
             <div class="case">
-                <h1>{{currentCase?.title.split(" ").slice(0,1).join("")}} <span>{{currentCase?.title.split(" ").slice(1,2).join("")}}</span> {{currentCase?.title.split(" ").slice(2).join(" ")}}</h1>
+                <!-- <h1>{{currentCase?.title.split(" ").slice(0,1).join("")}} <span>{{currentCase?.title.split(" ").slice(1,2).join("")}}</span> {{currentCase?.title.split(" ").slice(2).join(" ")}}</h1>
                 <p>{{currentCase?.description}}</p>
+                <main-button @click="redirect()" text="НАЧАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
+                <h3>КАК ИГРАТЬ?</h3> -->
+                <h1>загадочное <span>убийство</span> на вилле кортни</h1>
+                <p>11 июля 2020 года в маленьком городке Роадленд произошло шокирующее убийство Оливии Грин. Девушка была убита в собственном доме. Полиция арестовала Джейка Робинсона. Суд приговорил его к смертной казне. Ваша работа – изучить материалы дела, опровергнуть вину Джейка и найти настоящего убийцу.</p>
                 <main-button @click="redirect()" text="НАЧАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
                 <h3>КАК ИГРАТЬ?</h3>
             </div>
@@ -32,7 +36,7 @@ export default {
             this.currentCase = cases.find((cs) => cs.title.toLowerCase() === path)
             console.log(this.currentCase)
         },
-        redirect(){
+        redirect() {
             this.$router.push(`/${this.currentCase.title.toLowerCase().split(" ").join("-")}/confirmation`)
         }
     }

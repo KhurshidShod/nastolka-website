@@ -10,7 +10,7 @@
                 </div>
                 <div class="enter">
                     <input type="number" name="" id="">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="53" viewBox="0 0 60 53" fill="none">
+                    <svg @click.prevent="$router.push('playground/1')" xmlns="http://www.w3.org/2000/svg" width="60" height="53" viewBox="0 0 60 53" fill="none">
   <rect width="60" height="53" rx="10" fill="#272727" fill-opacity="0.45"/>
   <path d="M25.8389 38.5387L38.3695 25.6165L25.5311 13" stroke="white" stroke-width="2.475" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
