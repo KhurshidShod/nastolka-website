@@ -31,6 +31,9 @@
                 </div>
             </div>
         </div>
+        <div class="coder">
+            <p>Coded with ❤️ by 👨🏻‍💻<a href="http://devshodiyev.uz/" target="_blank">devshodiyev.uz</a></p>
+        </div>
     </section>
 </template>
 <script>
@@ -40,9 +43,56 @@ export default {
 </script>
 <style lang="scss" scoped>
 section {
+    position: relative;
     padding: 150px 105px;
     width: 100%;
     background-color: var(--bg-color);
+
+    .coder {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        color: white;
+        font-family: 'LT Remark';
+        font-size: 14px;
+
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            letter-spacing: 1px;
+
+            &:hover {
+                a {
+                    left: 125px;
+                    opacity: 1;
+                }
+            }
+
+            a {
+                position: absolute;
+                left: 120px;
+                opacity: 0;
+                margin-left: 20px;
+                color: white;
+                text-decoration: none;
+                letter-spacing: 1px;
+                transition: .3s linear;
+                font-weight: 700;
+                background: linear-gradient(180deg, #CF0000 50%, #650000 99.59%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
 
     @media (max-width: 1150px) {
         padding: 100px 55px;
