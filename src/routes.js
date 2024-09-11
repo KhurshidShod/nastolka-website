@@ -8,6 +8,7 @@ import TrueAnswer from "./views/TrueAnswerPage.vue";
 import FalsePage from "./views/FalsePage.vue";
 import TaskPage from "./views/TaskPage.vue";
 import EnterCodePage from "./views/EnterCodePage.vue";
+import CaseFinished from "./views/CaseFinished.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -20,7 +21,8 @@ const router = createRouter({
     { path: "/:case/:questionNumber/true", component: TrueAnswer, name: "True Answer"},
     { path: "/:case/false", component: FalsePage, name: "False Answer"},
     { path: "/:case/playground/:taskNum", component: TaskPage, name: "Task"},
-    { path: "/:case/confirmation", component: EnterCodePage, name: "Confirmation"}
+    { path: "/:case/confirmation", component: EnterCodePage, name: "Confirmation"},
+    { path: "/finished", component: CaseFinished, name: "Finished"}
   ]
 });
 

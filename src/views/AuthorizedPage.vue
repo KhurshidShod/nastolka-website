@@ -10,9 +10,9 @@
                     <div class="elipse">
 
                     </div>
-                    <form action="">
+                    <form action="" @submit.prevent="handleAuthorization()">
                         <p>Введите имя пользователя</p>
-                    <input type="text" placeholder="Username" name="" id="">
+                    <input type="text" v-model="username" placeholder="Username" name="" id="">
                     <main-button text="СОХРАНИТЬ" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
                     <p>Вы можете оставить имя по умолчанию, либо изменить его</p>
                     </form>
@@ -23,6 +23,17 @@
 </template>
 <script>
 export default {
+    data() {
+        return {
+            username: ""
+        }
+    },
+    methods: {
+        handleAuthorization() {
+            localStorage.setItem("username", this.username);
+            this.$router.push("/").then(() => this.$router.go(0))
+        }
+    }
 
 }
 </script>
