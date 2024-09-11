@@ -9,7 +9,7 @@
                             <h3>{{casee.title}}</h3>
                             <p>{{casee.description.split(" ").slice(0, 10).join(" ")}}...</p>
                         <img :src="casee.image" alt="">
-                        <main-button @click.prevent="redirect(casee.title)" text="РАССЛЕДОВАТЬ"></main-button>
+                        <main-button @click.prevent="redirect(casee.title)" text="РАССЛЕДОВАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
                         </div>
                         <img :src="casee.image" alt="">
                     </div>
@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         redirect(title){
-            this.$router.push(`/cases/${title.toLowerCase().split(" ").join("-")}`)
+            this.$router.push(`/case/play/${title.toLowerCase().split(" ").join("-")}`)
         }
     }
 }

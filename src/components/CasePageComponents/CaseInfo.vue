@@ -4,7 +4,7 @@
             <div class="case">
                 <h1>{{currentCase?.title.split(" ").slice(0,1).join("")}} <span>{{currentCase?.title.split(" ").slice(1,2).join("")}}</span> {{currentCase?.title.split(" ").slice(2).join(" ")}}</h1>
                 <p>{{currentCase?.description}}</p>
-                <main-button text="НАЧАТЬ"></main-button>
+                <main-button @click="redirect()" text="НАЧАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
                 <h3>КАК ИГРАТЬ?</h3>
             </div>
         </div>
@@ -31,6 +31,9 @@ export default {
             const path = this.$route.params.case.split("-").join(" ");
             this.currentCase = cases.find((cs) => cs.title.toLowerCase() === path)
             console.log(this.currentCase)
+        },
+        redirect(){
+            this.$router.push(`/${this.currentCase.title.toLowerCase().split(" ").join("-")}/confirmation`)
         }
     }
 }

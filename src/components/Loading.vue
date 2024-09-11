@@ -42,7 +42,7 @@ export default {
     position: relative;
     width: 250px;
     height: 250px;
-    background-image: url(/src/assets/images/finger-white.png);
+    background-image: url(/src/assets/images/loading/finger-white.png);
     background-size: 200px;
     background-repeat: no-repeat;
 
@@ -53,7 +53,7 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url(/src/assets/images/finger-red.png);
+      background-image: url(/src/assets/images/loading/finger-red.png);
       background-size: 200px;
       background-repeat: no-repeat;
       animation: animateFingerprint 4s ease-in-out infinite

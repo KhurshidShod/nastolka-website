@@ -18,7 +18,7 @@
                     <div class="login_inner">
                     <h1>Авторизуйтесь</h1>
                     <p> чтобы соревноваться с лучшими!</p>
-                    <main-button text="АВТОРИЗОВАТЬСЯ"></main-button>
+                    <main-button text="АВТОРИЗОВАТЬСЯ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
                     </div>
                 </div>
             </div>
@@ -400,7 +400,7 @@ section {
                 }
 
                 p {
-                    color: #272727;
+                    color: var(--text-dark);
                     text-align: center;
                     font-family: 'Roboto';
                     font-size: 32px;

@@ -9,7 +9,7 @@
                     об убийстве. Изучите улики, алиби и найдите настоящего убийцу!
                 </p>
                 </div>
-                <main-button text="РАЗГАДАТЬ ДЕЛО"></main-button>
+                <main-button text="РАЗГАДАТЬ ДЕЛО" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
             </div>
         </div>
     </section>
@@ -21,9 +21,9 @@
 section {
     position: relative;
     width: 100%;
-    height: 100vh;
-    max-height: 905px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.73) 0%, rgba(0, 0, 0, 0.73) 100%), url(/src/assets/images/hero/heroBg.jpeg) lightgray -1.562px 0px / 100.195% 99.448% no-repeat;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.73) 0%, rgba(0, 0, 0, 0.73) 100%), url(/src/assets/images/hero/heroBg.png) lightgray -1.562px 0px / 100.195% 99.448% no-repeat;
     background-position: center;
     background-size: cover;
     display: flex;
@@ -141,7 +141,7 @@ section {
                     max-width: 350px;
                 }
                 @media (max-width: 460px) {
-                    font-size: 14px;
+                    font-size: 12px;
                     max-width: 300px;
                 }
             }

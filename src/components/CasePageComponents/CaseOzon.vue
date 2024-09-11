@@ -34,7 +34,7 @@ export default {
         animateSculpture() {
             gsap.fromTo(
                 this.$refs.sculpture,
-                { x: 100 },
+                { x: 300 },
                 {
                     x: 0,
                     opacity: 1,

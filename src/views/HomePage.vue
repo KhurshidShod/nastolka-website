@@ -7,7 +7,7 @@
 </template>
 <script>
 import Hero from '../components/HomePageComponents/Hero.vue';
-import HowToPlay from '../components/HomePageComponents/HowToPlay.vue';
+import HowToPlay from '../components/HowToPlay.vue';
 import FAQ from '../components/HomePageComponents/FAQ.vue';
 import BestDetectives from '../components/HomePageComponents/BestDetectives.vue';
 import Magasine from '../components/HomePageComponents/Magasine.vue';

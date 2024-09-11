@@ -13,7 +13,7 @@
                     <form action="">
                         <p>Введите имя пользователя</p>
                     <input type="text" placeholder="Username" name="" id="">
-                    <main-button text="СОХРАНИТЬ"></main-button>
+                    <main-button text="СОХРАНИТЬ" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
                     <p>Вы можете оставить имя по умолчанию, либо изменить его</p>
                     </form>
                 </div>
@@ -30,7 +30,7 @@ export default {
 section {
     width: 100%;
     padding: 220px 5rem;
-    background: url(/src/assets/images/authorized/7c75db81bb60cf3fb850e1046b37a01f.png) rgb(24, 24, 24) 50% / cover no-repeat;
+    background: url(/src/assets/images/handbg.png) rgb(24, 24, 24) 50% / cover no-repeat;
 
     @media (max-width: 750px) {
         padding: 220px 0;

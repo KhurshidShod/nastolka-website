@@ -1,15 +1,41 @@
 <template lang="">
-    <button class="main_button">{{ text }}</button>
+    <button :style="{
+        'padding-inline': padInline + 'px',
+        'padding-block': padBlock + 'px',
+        'font-size': fontSize + 'px'
+    }" class="main_button">{{ text }}</button>
 </template>
 <script>
 export default {
-    props: ['text']
+    props: {
+        text: {
+            type: String,
+            required: true
+        },
+        padInline: {
+            type: Number,
+            required: true
+        },
+        padBlock: {
+            type: Number,
+            required: true
+        },
+        fontSize: {
+            type: Number,
+            required: true
+        },
+    },
+    mounted() {
+        console.log(this.text)
+        console.log(this.padInline)
+        console.log(this.padBlock)
+        console.log(this.fontSize)
+    }
 }
 </script>
 <style lang="scss" scoped>
 button {
     display: flex;
-    padding: 20px 44px;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -19,20 +45,19 @@ button {
     color: #FFF;
     text-align: center;
     font-family: 'Roboto';
-    font-size: 42px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     cursor: pointer;
 
-    @media (max-width: 1100px) {
-        padding: 16px 22px;
-        font-size: 36px;
+    @media (max-width: 900px) {
+        padding: 16px 22px !important;
+        font-size: 24px !important;
     }
 
-    @media (max-width: 900px) {
-        padding: 16px 22px;
-        font-size: 24px;
+    @media (max-width: 700px) {
+        padding: 12px 18px !important;
+        font-size: 16px !important;
     }
 }
 </style>
