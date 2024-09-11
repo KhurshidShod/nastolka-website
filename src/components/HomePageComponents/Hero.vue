@@ -1,6 +1,5 @@
 <template lang="">
     <section id="main">
-        <img class="hero_camera" src="/src/assets/images/hero/camera.png" alt="">
         <div class="container">
             <div class="hero">
                 <div>
@@ -35,29 +34,6 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    .hero_camera {
-        position: absolute;
-        width: 600px;
-        right: 0%;
-        top: 85%;
-        // bottom: -565px;
-        z-index: 2;
-        min-width: 120px;
-
-        @media (max-width: 1100px) {
-            width: 450px;
-        }
-
-        @media (max-width: 900px) {
-            width: 350px;
-        }
-
-        @media (max-width: 450px) {
-            width: 250px;
-            top: 90%;
-        }
-    }
 
     .hero {
         display: flex;
