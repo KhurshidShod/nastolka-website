@@ -73,12 +73,19 @@ section {
                 a {
                     left: 125px;
                     opacity: 1;
+
+                    @media (max-width: 550px) {
+                        left: 0;
+                        bottom: 20px;
+                        opacity: 1;
+                    }
                 }
             }
 
             a {
                 position: absolute;
                 left: 120px;
+                
                 opacity: 0;
                 margin-left: 20px;
                 color: white;
@@ -90,6 +97,10 @@ section {
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
+                @media (max-width: 550px) {
+                    bottom: 5px;
+                    left: 0;
+                }
             }
         }
     }
