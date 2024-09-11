@@ -1,9 +1,9 @@
 <template lang="">
     <section>
         <img class="image" ref="image" src="/src/assets/images/case/image.png" alt="">
-        <img class="sculpture" ref="sculpture" src="/src/assets/images/case/sculpture.png" alt="">
         <div class="container">
             <div class="case_cards">
+        <img class="sculpture" ref="sculpture" src="/src/assets/images/case/sculpture.png" alt="">
                 <div class="cards">
                     <div class="card"></div>
                     <div class="card"></div>
@@ -34,9 +34,9 @@ export default {
         animateSculpture() {
             gsap.fromTo(
                 this.$refs.sculpture,
-                { x: 300 },
+                { y: 300 },
                 {
-                    x: 0,
+                    y: 0,
                     opacity: 1,
                     ease: "power1.out",
                     duration: 5,
