@@ -8,7 +8,7 @@
                         <div>
                             <h3>{{casee.title}}</h3>
                             <p>{{casee.description.split(" ").slice(0, 10).join(" ")}}...</p>
-                        <img :src="casee.image" alt="">
+                        <img src="/src/assets/images/magazine/185480d0cf28dd4355da38b3223e42a5.png" alt="">
                         <main-button @click.prevent="redirect(casee.title)" text="РАССЛЕДОВАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
                         </div>
                         <img :src="casee.image" alt="">
