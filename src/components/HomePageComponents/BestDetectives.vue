@@ -18,7 +18,7 @@
                     <div class="login_inner">
                     <h1>Авторизуйтесь</h1>
                     <p> чтобы соревноваться с лучшими!</p>
-                    <main-button text="АВТОРИЗОВАТЬСЯ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
+                    <a href="">АВТОРИЗОВАТЬСЯ</a>
                     </div>
                 </div>
             </div>
@@ -421,8 +421,23 @@ section {
                     }
                 }
 
-                button {
+                a {
                     margin-top: 2rem;
+                    display: inline-flex;
+                    padding: 20px 44px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 11px;
+                    background: linear-gradient(180deg, #CF0000 0%, #650000 100%);
+                    box-shadow: 0px 0px 45px 0px #9E0B0B;
+                    color: #FFF;
+                    text-align: center;
+                    font-family: 'Roboto';
+                    font-size: 42px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
 
                     @media (max-width: 450px) {
                         width: 80%;
