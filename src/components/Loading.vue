@@ -2,7 +2,7 @@
   <div class="loading">
     <div class="fingerprint"></div>
     <h1>
-      Опрос <span>свидетелей</span>...
+      Опрос <span>свидетелей...</span>
     </h1>
   </div>
 </template>
@@ -24,6 +24,7 @@ export default {
   z-index: 999999;
   gap: 3rem;
   text-align: center;
+  padding: 1rem;
 
   h1 {
     font-size: 45px;
@@ -31,6 +32,14 @@ export default {
     letter-spacing: 5px;
     letter-spacing: 10px;
     color: white;
+
+    @media (max-width: 650px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 650px) {
+      letter-spacing: 4px;
+    }
 
     span {
       color: #980735;
@@ -45,6 +54,20 @@ export default {
     background-image: url(/src/assets/images/loading/finger-white.png);
     background-size: 200px;
     background-repeat: no-repeat;
+    background-color: transparent;
+
+    @media (max-width: 650px) {
+      background-size: 170px;
+      width: 200px;
+      height: 200px;
+    }
+
+    @media (max-width: 450px) {
+      background-size: 170px;
+      width: 150px;
+      height: 150px;
+      background-size: 120px;
+    }
 
     &::before {
       content: '';
@@ -55,8 +78,17 @@ export default {
       height: 100%;
       background-image: url(/src/assets/images/loading/finger-red.png);
       background-size: 200px;
+      background-color: transparent;
       background-repeat: no-repeat;
-      animation: animateFingerprint 4s ease-in-out infinite
+      animation: animateFingerprint 4s ease-in-out infinite;
+
+      @media (max-width: 650px) {
+        background-size: 170px;
+      }
+
+      @media (max-width: 450px) {
+        background-size: 120px;
+      }
     }
 
     &::after {
@@ -69,7 +101,15 @@ export default {
       background: #980735;
       border-radius: 8px;
       filter: drop-shadow(0 0 20px #980735) drop-shadow(0 0 60px #980735);
-      animation: animateLine 4s ease-in-out infinite
+      animation: animateLine 4s ease-in-out infinite;
+
+      @media (max-width: 650px) {
+        width: 85%;
+      }
+
+      @media (max-width: 450px) {
+        width: 80%;
+      }
     }
   }
 }
