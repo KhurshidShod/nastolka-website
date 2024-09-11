@@ -6,7 +6,7 @@
                 <img class="lupa" src="/src/assets/images/best-detectives/d25914a2a059b9bdc9a4eb22ac03c56d.png" alt="">
                 <h2>Совершенно верно! <img src="/src/assets/images/true/true.svg" alt=""></h2>
                 <div>
-                    <p v-for="msg in question?.accepted" :key="msg">{{msg}}</p>
+                    <p v-for="msg in currentCaseQuestion?.accepted" :key="msg">{{msg}}</p>
 
                 </div>
                 <main-button text="ДАЛЕЕ" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
@@ -19,8 +19,23 @@ import { cases } from '../assets/data';
 export default {
     data() {
         return {
-            case: cases.find(cs => cs.title.toLowerCase() === this.$route.params.case.split("-").join(" "))
+            currentCaseQuestion: null
         }
+    },
+    methods: {
+        findCurrentCase() {
+            const path = this.$route.params.case.split("-").join(" ");
+            this.currentCaseQuestion = cases.find(cs => cs.title.toLowerCase() === path).caseQuestions.find(ques => ques.id == this.$route.params.questionNumber);
+        }
+    },
+    watch: {
+        '$route'() {
+            this.findCurrentCase();
+        }
+    },
+    mounted() {
+        this.findCurrentCase()
+        console.log(this.currentCaseQuestion)
     }
 }
 </script>
