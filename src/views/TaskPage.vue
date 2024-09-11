@@ -11,54 +11,21 @@
                         </svg>
                     </div>
                 </div>
-                <h2>Вы можете доказать невиновность Джейка Робинсона?</h2>
-                <span>Выберите 2
-                    документа, которые опровергают его вину</span>
+                <h2>{{task?.question}}</h2>
+                <span>{{task?.condition}}</span>
                 <ul>
-                    <li>
-                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 1" type="checkbox" name="" id="1">
-                        <label for="1">Ответ на запрос Питеру Грину</label>
+                    <li v-for="opt in task?.options" :key="opt.id">
+                        <input @change="(e) => addToAnswers(e)" :value="opt.id" type="checkbox" name="" id="1">
+                        <label for="1">{{opt.option}}</label>
                     </li>
-                    <li>
-                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 2" type="checkbox" name="" id="2">
-                        <label for="2">Ответ на запрос Питеру Грину</label>
-                    </li>
-                    <li>
-                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 3" type="checkbox" name="" id="3">
-                        <label for="3">Ответ на запрос Питеру Грину</label>
-                    </li>
-                    <li>
-                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 4" type="checkbox" name="" id="4">
-                        <label for="4">Ответ на запрос Питеру Грину</label>
-                    </li>
-                    <li>
-                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 5" type="checkbox" name="" id="5">
-                        <label for="5">Ответ на запрос Питеру Грину</label>
-                    </li>
-                    <li>
-                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 6" type="checkbox" name="" id="6">
-                        <label for="6">Ответ на запрос Питеру Грину</label>
-                    </li>
-
-                    <li>
-                        <input @change="(e) => addToAnswers(e)" value="Ответ на запрос Питеру Грину 7" type="checkbox" name="" id="7">
-                        <label for="7">Ответ на запрос Питеру Грину</label>
-                    </li>
+                    
                 </ul>
                 <div class="helps">
-                    <div class="help" :class="{'open': firstHelpOpen}">
-                        <div class="top" @click.prevent="firstHelpOpen = !firstHelpOpen"><h1>Подсказка 1<svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35" fill="none">
+                    <div class="help" v-for="(hlp, index) in task?.help" :key="index" :class="{'open': firstHelpOpen}">
+                        <div class="top" @click.prevent="firstHelpOpen = !firstHelpOpen"><h1>Подсказка {{index}}<svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35" fill="none">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M27.3361 23.067C28.1392 23.8701 29.4413 23.8701 30.2444 23.067C31.0475 22.2639 31.0475 20.9618 30.2444 20.1587L17.9057 7.82002C17.1026 7.01693 15.8005 7.01693 14.9974 7.82002L2.65868 20.1587C1.85559 20.9618 1.85559 22.2639 2.65868 23.067C3.46178 23.8701 4.76385 23.8701 5.56694 23.067L16.4515 12.1824L27.3361 23.067Z" fill="white"/>
 </svg></h1></div>
-                        <div class="bottom">Обратите внимание 
-                            на запрос Питеру Грину</div>
-                    </div>
-                    <div class="help" :class="{'open': secondHelpOpen}">
-                        <div class="top" @click.prevent="secondHelpOpen = !secondHelpOpen"><h1>Подсказка 1<svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35" fill="none">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M27.3361 23.067C28.1392 23.8701 29.4413 23.8701 30.2444 23.067C31.0475 22.2639 31.0475 20.9618 30.2444 20.1587L17.9057 7.82002C17.1026 7.01693 15.8005 7.01693 14.9974 7.82002L2.65868 20.1587C1.85559 20.9618 1.85559 22.2639 2.65868 23.067C3.46178 23.8701 4.76385 23.8701 5.56694 23.067L16.4515 12.1824L27.3361 23.067Z" fill="white"/>
-</svg></h1></div>
-                        <div class="bottom">Обратите внимание 
-                            на запрос Питеру Грину</div>
+                        <div class="bottom">{{hlp}}</div>
                     </div>
                 </div>
                 <span>
@@ -75,15 +42,10 @@ export default {
         return {
             firstHelpOpen: false,
             secondHelpOpen: false,
-            case: null,
+            task: null,
             selectedAnswers: [],
             moreChoosen: false
         }
-    },
-    mounted() {
-        console.log(this.case)
-        this.case = cases.find(cs => cs.title.toLowerCase() === this.$route.params.case.toLowerCase().split("-").join(" "))
-            ?.caseQuestions.find(ques => ques.id == this.$route.params.taskNum)
     },
     methods: {
         addToAnswers(e) {
@@ -98,7 +60,20 @@ export default {
                 return;
             }
             console.log(this.selectedAnswers)
+        },
+        findCurrentCase() {
+            const path = this.$route.params.case.split("-").join(" ");
+            this.task = cases.find((cs) => cs.title.toLowerCase() === path).caseQuestions.find(ques => ques.id == this.$route.params.taskNum)
         }
+    },
+    watch: {
+        '$route'() {
+            this.findCurrentCase();
+        }
+    },
+    mounted() {
+        this.findCurrentCase()
+        console.log(this.task)
     }
 }
 </script>
