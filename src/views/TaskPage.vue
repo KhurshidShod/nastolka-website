@@ -59,7 +59,6 @@ export default {
                 this.moreChoosen = true;
                 return;
             }
-            console.log(this.selectedAnswers)
         },
         findCurrentCase() {
             const path = this.$route.params.case.split("-").join(" ");
@@ -73,7 +72,6 @@ export default {
     },
     mounted() {
         this.findCurrentCase()
-        console.log(this.task)
     }
 }
 </script>

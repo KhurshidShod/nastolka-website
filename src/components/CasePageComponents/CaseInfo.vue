@@ -15,14 +15,24 @@
     </section>
 </template>
 <script>
-import { cases } from '../../assets/data';
+// import { cases } from '../../assets/data';
 export default {
     data() {
         return {
             currentCase: null
         }
     },
+    // watch: {
+    //     '$route'() {
+    //         this.findCurrentCase();
+    //     }
+    // },
     methods: {
+        // findCurrentCase() {
+        // const path = this.$route.params.case.split("-").join(" ");
+        // this.currentCase = cases.find((cs) => cs.title.toLowerCase() === path)
+        // console.log(this.currentCase)
+        // },
         redirect() {
             this.$router.push(`/${this.currentCase.title.toLowerCase().split(" ").join("-")}/confirmation`)
         }

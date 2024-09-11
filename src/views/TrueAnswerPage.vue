@@ -35,7 +35,6 @@ export default {
     },
     mounted() {
         this.findCurrentCase()
-        console.log(this.currentCaseQuestion)
     }
 }
 </script>
