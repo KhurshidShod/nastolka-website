@@ -5,32 +5,38 @@
                 <div class="more__choosen" :class="{'open': moreChoosen}">
                     <div class="error">
                         <h1>Ошибка!</h1>
-                        <p>Выбрано больше двух документов</p>
+                        <p>Выбрано больше {{task?.trueAnswers.length}} документов</p>
                         <svg @click.prevent="moreChoosen = false" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
                             <path d="M9.48531 23.3988C9.07781 23.8063 9.07781 24.4669 9.48531 24.8744C9.89281 25.2819 10.5535 25.2819 10.961 24.8744L9.48531 23.3988ZM17.9175 17.9179C18.325 17.5104 18.325 16.8498 17.9175 16.4423C17.51 16.0347 16.8494 16.0347 16.4419 16.4423L17.9175 17.9179ZM16.4419 16.4423C16.0344 16.8498 16.0344 17.5104 16.4419 17.9179C16.8494 18.3254 17.51 18.3254 17.9175 17.9179L16.4419 16.4423ZM24.8741 10.9614C25.2816 10.5539 25.2816 9.89318 24.8741 9.48568C24.4665 9.07818 23.8059 9.07818 23.3984 9.48568L24.8741 10.9614ZM17.9175 16.4423C17.51 16.0347 16.8494 16.0347 16.4419 16.4423C16.0344 16.8498 16.0344 17.5104 16.4419 17.9179L17.9175 16.4423ZM23.3984 24.8744C23.8059 25.2819 24.4665 25.2819 24.8741 24.8744C25.2816 24.4669 25.2816 23.8063 24.8741 23.3988L23.3984 24.8744ZM16.4419 17.9179C16.8494 18.3254 17.51 18.3254 17.9175 17.9179C18.325 17.5104 18.325 16.8498 17.9175 16.4423L16.4419 17.9179ZM10.961 9.48568C10.5535 9.07818 9.89281 9.07818 9.48531 9.48568C9.07781 9.89318 9.07781 10.5539 9.48531 10.9614L10.961 9.48568ZM10.961 24.8744L17.9175 17.9179L16.4419 16.4423L9.48531 23.3988L10.961 24.8744ZM17.9175 17.9179L24.8741 10.9614L23.3984 9.48568L16.4419 16.4423L17.9175 17.9179ZM16.4419 17.9179L23.3984 24.8744L24.8741 23.3988L17.9175 16.4423L16.4419 17.9179ZM17.9175 16.4423L10.961 9.48568L9.48531 10.9614L16.4419 17.9179L17.9175 16.4423Z" fill="white"/>
                         </svg>
                     </div>
                 </div>
-                <h2>{{task?.question}}</h2>
+                <h2>Задание № {{task?.id}} - {{task?.question}}</h2>
                 <span>{{task?.condition}}</span>
                 <ul>
                     <li v-for="opt in task?.options" :key="opt.id">
-                        <input @change="(e) => addToAnswers(e)" :value="opt.id" type="checkbox" name="" id="1">
-                        <label for="1">{{opt.option}}</label>
+                        <label class="label_container">
+  <input type="checkbox" @change="(e) => addToAnswers(e)" :value="opt.id" :id="opt.id">
+  <svg viewBox="0 0 64 64" height="2em" width="2em">
+    <path d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16" pathLength="575.0541381835938" class="path"></path>
+  </svg>
+  <p>{{opt.option}}</p>
+</label>
                     </li>
                     
                 </ul>
+                <main-button text="ВЫБРАТЬ" :fontSize="30" :padBlock="14" :padInline="30"></main-button>
+                <span>
+                    При выборе подсказки к вашему времени прохождения добавится 15мин
+                </span>
                 <div class="helps">
-                    <div class="help" v-for="(hlp, index) in task?.help" :key="index" :class="{'open': firstHelpOpen}">
-                        <div class="top" @click.prevent="firstHelpOpen = !firstHelpOpen"><h1>Подсказка {{index}}<svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35" fill="none">
+                    <div class="help" v-for="(hlp, index) in task?.help" :key="index" :class="{'open': openHelpIndex === index}">
+                        <div class="top" @click.prevent="toggleHelp(index)"><h1>Подсказка {{index}}<svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35" fill="none">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M27.3361 23.067C28.1392 23.8701 29.4413 23.8701 30.2444 23.067C31.0475 22.2639 31.0475 20.9618 30.2444 20.1587L17.9057 7.82002C17.1026 7.01693 15.8005 7.01693 14.9974 7.82002L2.65868 20.1587C1.85559 20.9618 1.85559 22.2639 2.65868 23.067C3.46178 23.8701 4.76385 23.8701 5.56694 23.067L16.4515 12.1824L27.3361 23.067Z" fill="white"/>
 </svg></h1></div>
                         <div class="bottom">{{hlp}}</div>
                     </div>
                 </div>
-                <span>
-                    При выборе подсказки к вашему времени прохождения добавится 15мин
-                </span>
             </div>
         </div>
     </section>
@@ -40,8 +46,7 @@ import { cases } from '../assets/data';
 export default {
     data() {
         return {
-            firstHelpOpen: false,
-            secondHelpOpen: false,
+            openHelpIndex: null,
             task: null,
             selectedAnswers: [],
             moreChoosen: false
@@ -49,21 +54,33 @@ export default {
     },
     methods: {
         addToAnswers(e) {
-            if (this.selectedAnswers.length < 2) {
-                if (this.selectedAnswers.includes(e.target.value)) {
-                    this.selectedAnswers = this.selectedAnswers.filter(ans => ans !== e.target.value)
+            const value = e.target.value;
+            if (this.selectedAnswers.length < this.task?.trueAnswers?.length) {
+                if (!this.selectedAnswers.includes(value)) {
+                    this.selectedAnswers.push(value);
                 } else {
-                    this.selectedAnswers.push(e.target.value)
+                    this.selectedAnswers = this.selectedAnswers.filter((answer) => answer !== value);
                 }
+            } else if (this.selectedAnswers.includes(value)) {
+                this.selectedAnswers = this.selectedAnswers.filter((answer) => answer !== value);
             } else {
                 this.moreChoosen = true;
+                e.target.checked = false
+                console.log(this.selectedAnswers)
                 return;
             }
         },
         findCurrentCase() {
             const path = this.$route.params.case.split("-").join(" ");
             this.task = cases.find((cs) => cs.title.toLowerCase() === path).caseQuestions.find(ques => ques.id == this.$route.params.taskNum)
-        }
+        },
+        toggleHelp(index) {
+            if (this.openHelpIndex === index) {
+                this.openHelpIndex = null;
+            } else {
+                this.openHelpIndex = index;
+            }
+        },
     },
     watch: {
         '$route'() {
@@ -89,15 +106,9 @@ section {
 
     .task {
         width: 100%;
-        background: url(/src/assets/images/task/taskbg.png) rgba(211, 211, 211, 0) 50% / cover no-repeat;
         padding: 2rem;
         gap: 2rem;
         display: flex;
-        background-size: 100% 100%;
-        padding-left: 25px;
-        padding-top: 100px;
-        padding-bottom: 100px;
-        padding-right: 200px;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -167,9 +178,11 @@ section {
 
         ul {
             margin-top: 50px;
-            margin-bottom: 50px;
 
             li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 color: var(--text-dark);
                 font-family: 'Roboto';
                 font-size: 24px;
@@ -177,12 +190,12 @@ section {
                 font-weight: 400;
                 line-height: 110%;
                 margin-bottom: 20px;
-
+                color: white;
                 font-size: 24px;
                 display: flex;
                 justify-content: start;
                 align-items: center;
-                gap: 5px;
+                gap: 10px;
                 cursor: pointer;
 
                 @media (max-width: 750px) {
@@ -193,22 +206,46 @@ section {
                     font-size: 14px;
                 }
 
-                input {
-                    appearance: none;
-                    width: 7px;
-                    height: 7px;
-                    border-radius: 50%;
-                    border: 1px solid black;
-                    padding: 3px;
+                .label_container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
                     cursor: pointer;
 
+                    input {
+                        display: none;
 
-                    &:checked {
-                        background-color: black;
+                        &:checked~svg .path {
+                            stroke-dasharray: 70.5096664428711 9999999;
+                            stroke-dashoffset: -262.2723388671875;
+                        }
+                    }
+
+                    svg {
+                        overflow: visible;
+                        width: 20px;
+                        height: 20px;
+
+                        .path {
+                            fill: none;
+                            stroke: white;
+                            stroke-width: 8;
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                            transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+                            stroke-dasharray: 241 9999999;
+                            stroke-dashoffset: 0;
+                        }
                     }
 
                     p {
-                        cursor: pointer;
+                        color: #FFF;
+                        font-family: 'Roboto';
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 46px;
                     }
                 }
             }
@@ -319,13 +356,14 @@ section {
         }
 
         h2 {
-            color: var(--text-dark);
+            color: white;
             text-align: center;
             font-family: 'Roboto';
             font-size: 42px;
             font-style: normal;
             font-weight: 700;
             line-height: 125%;
+            max-width: 780px;
 
             @media (max-width: 1050px) {
                 font-size: 38px;
@@ -341,7 +379,7 @@ section {
         }
 
         span {
-            color: var(--text-dark);
+            color: white;
             text-align: center;
             font-family: 'Roboto';
             font-size: 24px;
@@ -354,7 +392,8 @@ section {
             align-items: center;
             gap: 10px;
             border-radius: 13px;
-            border: 1px solid #202020;
+            border: 1px solid white;
+            margin-top: 2rem;
 
             @media (max-width: 1050px) {
                 font-size: 18px;

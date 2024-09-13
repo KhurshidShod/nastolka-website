@@ -445,6 +445,16 @@ section {
                         font-size: 14px;
                         padding: 8px 14px;
                     }
+
+                    @media (max-width: 900px) {
+                        padding: 16px 22px !important;
+                        font-size: 24px !important;
+                    }
+
+                    @media (max-width: 700px) {
+                        padding: 12px 18px !important;
+                        font-size: 16px !important;
+                    }
                 }
             }
         }

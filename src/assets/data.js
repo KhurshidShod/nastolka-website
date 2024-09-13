@@ -4,23 +4,27 @@ export const rules = [
     title: "Изучите дело",
     content:
       "внимательно изучите все материалы дела, включая допросы свидетелей и фотографии",
+    image: "/src/assets/images/howtoplay/elipse1.jpeg"
   },
   {
     id: 1,
     title: "Выполните задания",
     content:
       "в процессе игры вам нужно выполнять задания, которые вы найдёте в коробке",
+      image: "/src/assets/images/howtoplay/elipse2.jpeg"
   },
   {
     id: 2,
     title: "Подтвердите версию",
     content:
       "если вы считаете, что знаете правильный ответ на  очередное задание, то перейдите по ссылке и проверьте свою теорию",
+      image: "/src/assets/images/howtoplay/elipse3.png"
   },
   {
     id: 3,
     title: "Найдите настоящего убийцу!",
     content: "игра считается завершённой, когда все задания успешно выполнены",
+    image: "/src/assets/images/howtoplay/elipse4.jpeg"
   },
 ];
 

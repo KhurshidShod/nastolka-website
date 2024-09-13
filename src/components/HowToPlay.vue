@@ -8,16 +8,26 @@
                 <div class="howToPlay_tips">
                     <div class="howToPlay_tips_group">
                         <div class="howToPlay_tips_group_tip" v-for="rule in allRules.slice(0, 2)" :key="rule.id">
-                        <span>{{rule.id + 1}}.</span>
+                            <div class="image">
+                                <img :src="rule.image" alt="">
+                            </div>
+                        <div class="text">
+                            <span>{{rule.id + 1}}.</span>
                         <h1>{{rule.title}}</h1>
                         <p>{{rule.content}}</p>
+                        </div>
                     </div>
                     </div>
                     <div class="howToPlay_tips_group">
                         <div class="howToPlay_tips_group_tip" v-for="rule in allRules.slice(2, 4)" :key="rule.id">
-                        <span>{{rule.id + 1}}.</span>
+                            <div class="image">
+                                <img :src="rule.image" alt="">
+                            </div>
+                        <div class="text">
+                            <span>{{rule.id + 1}}.</span>
                         <h1>{{rule.title}}</h1>
                         <p>{{rule.content}}</p>
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -27,7 +37,6 @@
 </template>
 <script>
 import { rules } from '../assets/data';
-
 export default {
     data() {
         return {
@@ -50,6 +59,11 @@ section {
     background-repeat: no-repeat;
     overflow: hidden;
 
+    @media (max-width: 450px) {
+        padding-top: 50px;
+        padding-bottom: 70px;
+    }
+
     .hero_camera {
         position: absolute;
         width: 600px;
@@ -68,7 +82,7 @@ section {
         }
 
         @media (max-width: 450px) {
-            width: 250px;
+            width: 150px;
             top: 0%;
         }
     }
@@ -78,23 +92,28 @@ section {
         top: 0%;
         left: 0;
         width: 560px;
+
         @media (max-width: 1100px) {
             width: 450px;
         }
+
         @media (max-width: 900px) {
             width: 350px;
         }
+
         @media (max-width: 750px) {
             width: 250px;
             top: 12%;
         }
+
         @media (max-width: 600px) {
             width: 200px;
             top: 12%;
         }
+
         @media (max-width: 450px) {
-            width: 150px;
-            top: 12%;
+            width: 120px;
+            top: 7%;
         }
     }
 
@@ -105,6 +124,10 @@ section {
         align-items: center;
         flex-direction: column;
         gap: 122px;
+
+        @media (max-width: 750px) {
+            gap: 20px;
+        }
 
         &_header {
             color: #27221B;
@@ -125,9 +148,11 @@ section {
             @media (max-width: 580px) {
                 font-size: 48px;
                 font-weight: 700;
+                letter-spacing: 5px;
             }
+
             @media (max-width: 450px) {
-                font-size: 32px;
+                font-size: 22px;
                 font-weight: 700;
             }
         }
@@ -139,17 +164,21 @@ section {
             align-items: stretch;
             flex-direction: row;
             flex-wrap: wrap;
-            gap: 150px;
+            gap: 75px;
 
             @media (max-width: 850px) {
                 width: 100%;
                 flex-direction: column;
                 align-items: center;
-                gap: 100px;
+                gap: 75px;
+            }
+
+            @media (max-width: 450px) {
+                gap: 2rem;
             }
 
             &_group {
-                width: calc(100% / 2 - 100px);
+                width: calc(100% / 2 - 50px);
                 display: flex;
                 flex-direction: column;
                 gap: 100px;
@@ -159,12 +188,17 @@ section {
                     width: 100%;
                 }
 
+                @media (max-width: 450px) {
+                    gap: 2rem;
+                }
+
                 &_tip {
                     display: flex;
-                    justify-content: start;
-                    align-items: start;
-                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
                     position: relative;
+                    gap: 10px;
                     width: 100%;
                     max-width: 650px;
                     min-width: 200px;
@@ -172,79 +206,119 @@ section {
 
                     @media (max-width: 850px) {
                         width: 100%;
+                        max-width: 100%;
                     }
 
-                    :last-child {
-                        order: 1;
-                    }
+                    .image {
+                        width: 120px;
+                        height: 120px;
+                        border-radius: 50%;
+                        overflow: hidden;
 
-                    span {
-                        position: absolute;
-                        right: -10%;
-                        top: -50%;
-                        color: rgba(130, 120, 107, 0.27);
-                        text-align: center;
-                        leading-trim: both;
-                        text-edge: cap;
-                        font-family: "LT Remark";
-                        font-size: 250px;
-                        font-style: italic;
-                        font-weight: 700;
-                        line-height: normal;
-
-                        @media (max-width: 850px) {
-                            font-size: 200px;
-                            right: 10%;
-                            top: -80%;
-                        }
-                        @media (max-width: 650px) {
-                            font-size: 120px;
-                            right: 5%;
-                            top: -50%;
-                        }
                         @media (max-width: 450px) {
-                            font-size: 80px;
-                            right: 0;
+                            width: 56px;
+                            height: 56px;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
                         }
                     }
 
-                    h1 {
-                        font-family: 'Roboto';
-                        color: var(--text-dark);
-                        font-size: 42px;
-                        font-style: normal;
-                        font-weight: 700;
-                        z-index: 2;
+                    .text {
+                        width: calc(100% - 130px);
+                        display: flex;
+                        justify-content: start;
+                        align-items: start;
+                        flex-direction: column;
+                        position: relative;
 
-                        @media (max-width: 850px) {
-                            font-size: 36px;
+                        @media (max-width: 450px) {
+                            width: calc(100% - 56px);
+                        }
+
+                        span {
+                            position: absolute;
+                            right: -10%;
+                            top: -50%;
+                            color: rgba(130, 120, 107, 0.27);
+                            text-align: center;
+                            leading-trim: both;
+                            text-edge: cap;
+                            font-family: "LT Remark";
+                            font-size: 250px;
+                            font-style: italic;
                             font-weight: 700;
+                            line-height: normal;
+
+                            @media (max-width: 850px) {
+                                font-size: 200px;
+                                right: 10%;
+                                top: -80%;
+                            }
+
+                            @media (max-width: 650px) {
+                                font-size: 120px;
+                                right: 5%;
+                                top: -50%;
+                            }
+
+                            @media (max-width: 450px) {
+                                font-size: 62px;
+                                right: 0;
+                            }
                         }
-                        @media (max-width: 650px) {
-                            font-size: 28px;
+
+                        h1 {
+                            font-family: 'Roboto';
+                            color: var(--text-dark);
+                            font-size: 42px;
+                            font-style: normal;
+                            font-weight: 700;
+                            z-index: 2;
+
+                            @media (max-width: 850px) {
+                                font-size: 36px;
+                                font-weight: 700;
+                            }
+
+                            @media (max-width: 650px) {
+                                font-size: 28px;
+                            }
+
+                            @media (max-width: 450px) {
+                                font-size: 14px;
+                            }
+                        }
+
+                        p {
+                            color: var(--text-dark);
+                            font-family: 'Roboto';
+                            font-size: 24px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 140%;
+                            z-index: 2;
+
+                            &::first-letter {
+                                text-transform: uppercase;
+                            }
+
+                            @media (max-width: 850px) {
+                                font-size: 22px;
+                            }
+
+                            @media (max-width: 650px) {
+                                font-size: 18px;
+                            }
+
+                            @media (max-width: 450px) {
+                                font-size: 11px;
+                            }
                         }
                     }
 
-                    p {
-                        color: var(--text-dark);
-                        font-family: 'Roboto';
-                        font-size: 24px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 140%;
-                        z-index: 2;
-
-                        &::first-letter {
-                            text-transform: uppercase;
-                        }
-
-                        @media (max-width: 850px) {
-                            font-size: 22px;
-                        }
-                        @media (max-width: 650px) {
-                            font-size: 18px;
-                        }
-                    }
                 }
             }
 

@@ -52,24 +52,24 @@ section {
     .question_mark1 {
         position: absolute;
         left: 45px;
-        bottom: 145px;
+        bottom: 50px;
 
         @media (max-width: 1150px) {
-            width: 50px;
-            left: 45px;
-            bottom: 110px;
+            width: 75px;
+            left: 60px;
+            bottom: 50px;
         }
     }
 
     .question_mark2 {
         position: absolute;
         right: 51px;
-        top: 81px;
+        top: 50px;
 
         @media (max-width: 1150px) {
             width: 50px;
             right: 51px;
-            top: 51px;
+            top: 20px;
         }
     }
 
@@ -96,7 +96,7 @@ section {
             gap: 20px;
             padding: 1rem;
             min-width: 250px;
-            flex-grow: 1;
+            flex-grow: 0.75;
             z-index: 2;
 
             h1 {
@@ -109,6 +109,10 @@ section {
                 line-height: normal;
                 letter-spacing: 4.4px;
                 max-width: 382px;
+
+                @media (max-width: 550px) {
+                    font-size: 18px;
+                }
             }
 
             p {
@@ -123,6 +127,9 @@ section {
                 line-height: normal;
                 max-width: 382px;
 
+                @media (max-width: 550px) {
+                    font-size: 16px;
+                }
             }
         }
     }
