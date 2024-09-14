@@ -5,7 +5,7 @@
                 <div class="more__choosen" :class="{'open': moreChoosen}">
                     <div class="error">
                         <h1>Ошибка!</h1>
-                        <p>Выбрано больше {{task?.trueAnswers.length}} документов</p>
+                        <p>Выбрано больше {{task?.trueAnswers.length}} вариантов</p>
                         <svg @click.prevent="moreChoosen = false" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
                             <path d="M9.48531 23.3988C9.07781 23.8063 9.07781 24.4669 9.48531 24.8744C9.89281 25.2819 10.5535 25.2819 10.961 24.8744L9.48531 23.3988ZM17.9175 17.9179C18.325 17.5104 18.325 16.8498 17.9175 16.4423C17.51 16.0347 16.8494 16.0347 16.4419 16.4423L17.9175 17.9179ZM16.4419 16.4423C16.0344 16.8498 16.0344 17.5104 16.4419 17.9179C16.8494 18.3254 17.51 18.3254 17.9175 17.9179L16.4419 16.4423ZM24.8741 10.9614C25.2816 10.5539 25.2816 9.89318 24.8741 9.48568C24.4665 9.07818 23.8059 9.07818 23.3984 9.48568L24.8741 10.9614ZM17.9175 16.4423C17.51 16.0347 16.8494 16.0347 16.4419 16.4423C16.0344 16.8498 16.0344 17.5104 16.4419 17.9179L17.9175 16.4423ZM23.3984 24.8744C23.8059 25.2819 24.4665 25.2819 24.8741 24.8744C25.2816 24.4669 25.2816 23.8063 24.8741 23.3988L23.3984 24.8744ZM16.4419 17.9179C16.8494 18.3254 17.51 18.3254 17.9175 17.9179C18.325 17.5104 18.325 16.8498 17.9175 16.4423L16.4419 17.9179ZM10.961 9.48568C10.5535 9.07818 9.89281 9.07818 9.48531 9.48568C9.07781 9.89318 9.07781 10.5539 9.48531 10.9614L10.961 9.48568ZM10.961 24.8744L17.9175 17.9179L16.4419 16.4423L9.48531 23.3988L10.961 24.8744ZM17.9175 17.9179L24.8741 10.9614L23.3984 9.48568L16.4419 16.4423L17.9175 17.9179ZM16.4419 17.9179L23.3984 24.8744L24.8741 23.3988L17.9175 16.4423L16.4419 17.9179ZM17.9175 16.4423L10.961 9.48568L9.48531 10.9614L16.4419 17.9179L17.9175 16.4423Z" fill="white"/>
                         </svg>
@@ -25,15 +25,19 @@
                     </li>
                     
                 </ul>
-                <main-button text="ВЫБРАТЬ" :fontSize="30" :padBlock="14" :padInline="30"></main-button>
+                <div v-if="task?.playerVersionNeeded" class="player_version">
+                    <h1>ИЗЛОЖИТЕ СВОЮ ВЕРСИЮ</h1>
+                    <textarea name="" id="" placeholder="Напишите здесь"></textarea>
+                </div>
+                <main-button @click.prevent="submitAnswers()" text="ВЫБРАТЬ" :fontSize="30" :padBlock="14" :padInline="30"></main-button>
                 <span>
                     При выборе подсказки к вашему времени прохождения добавится 15мин
                 </span>
                 <div class="helps">
                     <div class="help" v-for="(hlp, index) in task?.help" :key="index" :class="{'open': openHelpIndex === index}">
-                        <div class="top" @click.prevent="toggleHelp(index)"><h1>Подсказка {{index}}<svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35" fill="none">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M27.3361 23.067C28.1392 23.8701 29.4413 23.8701 30.2444 23.067C31.0475 22.2639 31.0475 20.9618 30.2444 20.1587L17.9057 7.82002C17.1026 7.01693 15.8005 7.01693 14.9974 7.82002L2.65868 20.1587C1.85559 20.9618 1.85559 22.2639 2.65868 23.067C3.46178 23.8701 4.76385 23.8701 5.56694 23.067L16.4515 12.1824L27.3361 23.067Z" fill="white"/>
-</svg></h1></div>
+                        <div class="top" @click.prevent="toggleHelp(index)"><h1>Подсказка {{index + 1}}<svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M27.3361 23.067C28.1392 23.8701 29.4413 23.8701 30.2444 23.067C31.0475 22.2639 31.0475 20.9618 30.2444 20.1587L17.9057 7.82002C17.1026 7.01693 15.8005 7.01693 14.9974 7.82002L2.65868 20.1587C1.85559 20.9618 1.85559 22.2639 2.65868 23.067C3.46178 23.8701 4.76385 23.8701 5.56694 23.067L16.4515 12.1824L27.3361 23.067Z" fill="white"/>
+                        </svg></h1></div>
                         <div class="bottom">{{hlp}}</div>
                     </div>
                 </div>
@@ -54,7 +58,7 @@ export default {
     },
     methods: {
         addToAnswers(e) {
-            const value = e.target.value;
+            const value = Number(e.target.value);
             if (this.selectedAnswers.length < this.task?.trueAnswers?.length) {
                 if (!this.selectedAnswers.includes(value)) {
                     this.selectedAnswers.push(value);
@@ -81,6 +85,15 @@ export default {
                 this.openHelpIndex = index;
             }
         },
+        submitAnswers() {
+            console.log(this.selectedAnswers)
+            console.log(this.task.trueAnswers)
+            if (JSON.stringify(this.task.trueAnswers.sort()) == JSON.stringify(this.selectedAnswers.sort())) {
+                this.$router.push(`/${this.$route.params.case}/${this.$route.params.taskNum}/true`)
+            } else {
+                this.$router.push(`/${this.$route.params.case}/${this.$route.params.taskNum}/false`)
+            }
+        }
     },
     watch: {
         '$route'() {
@@ -138,8 +151,8 @@ section {
                 flex-direction: column;
                 gap: 0.5rem;
                 padding: 2rem 1.5rem;
-                border-radius: 40px;
-                background: rgba(30, 30, 30, 0.92);
+                border-radius: 24px;
+                background: rgba(157, 20, 20, 0.92);
                 backdrop-filter: blur(5.0071940422058105px);
 
                 svg {
@@ -213,6 +226,10 @@ section {
                     gap: 1rem;
                     cursor: pointer;
 
+                    @media (max-width: 550px) {
+                        gap: 0.5rem;
+                    }
+
                     input {
                         display: none;
 
@@ -226,6 +243,11 @@ section {
                         overflow: visible;
                         width: 20px;
                         height: 20px;
+
+                        @media (max-width: 550px) {
+                            width: 15px;
+                            height: 15px;
+                        }
 
                         .path {
                             fill: none;
@@ -246,6 +268,84 @@ section {
                         font-style: normal;
                         font-weight: 400;
                         line-height: 46px;
+
+                        @media (max-width: 550px) {
+                            font-size: 18px;
+                            line-height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .player_version {
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+            max-width: 850px;
+            border-radius: 25px;
+            background: #222;
+            padding: 20px 40px;
+
+            h1 {
+                color: #FFF;
+                text-align: center;
+                font-family: "Another Danger";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: 4.4px;
+
+                @media (max-width: 750px) {
+                    font-size: 18px;
+                }
+
+                @media (max-width: 550px) {
+                    font-size: 16px;
+                }
+            }
+
+            textarea {
+                width: 100%;
+                height: 350px;
+                margin-top: 20px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                color: #FFF;
+                font-family: 'Roboto';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                resize: vertical;
+                min-height: 250px;
+
+                @media (max-width: 750px) {
+                    font-size: 20px;
+                }
+
+                @media (max-width: 550px) {
+                    font-size: 16px;
+                }
+
+                &::placeholder {
+                    color: #FFF;
+                    font-family: 'Roboto';
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+
+                    @media (max-width: 750px) {
+                        font-size: 20px;
+                    }
+
+                    @media (max-width: 550px) {
+                        font-size: 16px;
                     }
                 }
             }
@@ -393,7 +493,6 @@ section {
             gap: 10px;
             border-radius: 13px;
             border: 1px solid white;
-            margin-top: 2rem;
 
             @media (max-width: 1050px) {
                 font-size: 18px;

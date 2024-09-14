@@ -4,13 +4,14 @@
         <img class="dnevnik" src="/src/assets/images/howtoplay/dnevnik.png" alt="">
         <div class="container">
             <div class="howToPlay">
-                <h1 class="howToPlay_header">КАК ИГРАТЬ?</h1>
-                <div class="howToPlay_tips">
+                <h1 class="howToPlay_header"><img ref="lupaText" src="/src/assets/images/howtoplay/lupahowtoplay.png" alt=""> КАК ИГРАТЬ?</h1>
+                <div class="howToPlay_tips"  :class="{ case: openingPage === 'case' }" >
                     <div class="howToPlay_tips_group">
                         <div class="howToPlay_tips_group_tip" v-for="rule in allRules.slice(0, 2)" :key="rule.id">
-                            <div class="image">
-                                <img :src="rule.image" alt="">
+                            <div v-if="openingPage === 'home'" class="image">
+                                <img src="/src/assets/images/howtoplay/elipse1.jpeg" loading="lazy" alt="">
                             </div>
+                            <div v-if="openingPage === 'case'" class="image_card"></div>
                         <div class="text">
                             <span>{{rule.id + 1}}.</span>
                         <h1>{{rule.title}}</h1>
@@ -20,9 +21,10 @@
                     </div>
                     <div class="howToPlay_tips_group">
                         <div class="howToPlay_tips_group_tip" v-for="rule in allRules.slice(2, 4)" :key="rule.id">
-                            <div class="image">
-                                <img :src="rule.image" alt="">
+                            <div v-if="openingPage === 'home'" class="image">
+                                <img src="/src/assets/images/howtoplay/elipse1.jpeg" loading="lazy" alt="">
                             </div>
+                            <div v-if="openingPage === 'case'" class="image_card"></div>
                         <div class="text">
                             <span>{{rule.id + 1}}.</span>
                         <h1>{{rule.title}}</h1>
@@ -37,11 +39,38 @@
 </template>
 <script>
 import { rules } from '../assets/data';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger)
 export default {
+    props: ['openingPage'],
     data() {
         return {
             allRules: rules
         }
+    },
+    mounted() {
+        this.animateLupa()
+    },
+    methods: {
+        animateLupa() {
+            gsap.fromTo(
+                this.$refs.lupaText,
+                { x: -550 },
+                {
+                    x: 0,
+                    ease: "power2.out",
+                    duration: 5,
+                    scrollTrigger: {
+                        trigger: this.$refs.lupaText,
+                        start: "top 60%",
+                        end: "bottom 50%",
+                        scrub: 1.3,
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        },
     }
 }
 </script>
@@ -69,7 +98,6 @@ section {
         width: 600px;
         right: 0%;
         top: 0%;
-        // bottom: -565px;
         z-index: 2;
         min-width: 120px;
 
@@ -130,6 +158,7 @@ section {
         }
 
         &_header {
+            position: relative;
             color: #27221B;
             text-align: center;
             font-family: "Another Danger";
@@ -140,6 +169,42 @@ section {
             letter-spacing: 16.28px;
             border-radius: 5px;
             z-index: 2;
+
+            img {
+                width: 375px;
+                height: 442.219px;
+                position: absolute;
+                transform: rotate(15deg);
+                top: -60%;
+                left: -50%;
+
+                @media (max-width: 900px) {
+                    width: 280px;
+                    height: 330px;
+                }
+
+                @media (max-width: 750px) {
+                    width: 250px;
+                    height: 300px;
+                    left: -40%;
+                    top: -50%;
+                }
+
+                @media (max-width: 580px) {
+                    width: 200px;
+                    height: 250px;
+                    transform: rotate(10deg);
+                    left: -45%;
+                    top: -40%;
+                }
+
+                @media (max-width: 450px) {
+                    width: 120px;
+                    height: 170px;
+                    left: -50%;
+                    top: -80%;
+                }
+            }
 
             @media (max-width: 900px) {
                 font-size: 56px;
@@ -165,6 +230,41 @@ section {
             flex-direction: row;
             flex-wrap: wrap;
             gap: 75px;
+
+            &.case {
+                flex-direction: column;
+
+                .howToPlay_tips_group {
+                    width: 100%;
+
+                    &_tip {
+                        max-width: 100%;
+
+                        @media (max-width: 750px) {
+                            flex-direction: column;
+                        }
+
+                        .text {
+
+
+                            @media (max-width: 750px) {
+                                flex-direction: column;
+                                width: 100%;
+                                text-align: center;
+                                align-items: center;
+                            }
+
+                            span {
+                                @media (max-width: 750px) {
+                                    left: -65%;
+                                    top: -150%;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
 
             @media (max-width: 850px) {
                 width: 100%;
@@ -223,6 +323,23 @@ section {
                         img {
                             width: 100%;
                             height: 100%;
+                        }
+                    }
+
+                    .image_card {
+                        width: 460px;
+                        height: 320px;
+                        background-color: white;
+
+                        @media (max-width: 900px) {
+                            width: 350px;
+                            height: 280px;
+                        }
+
+                        @media (max-width: 450px) {
+                            width: 75%;
+                            min-width: 250px;
+                            height: 280px;
                         }
                     }
 
@@ -288,7 +405,7 @@ section {
                             }
 
                             @media (max-width: 450px) {
-                                font-size: 14px;
+                                font-size: 22px;
                             }
                         }
 
@@ -314,7 +431,7 @@ section {
                             }
 
                             @media (max-width: 450px) {
-                                font-size: 11px;
+                                font-size: 12px;
                             }
                         }
                     }

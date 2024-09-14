@@ -16,7 +16,7 @@
                     <div class="item_skoro">
                         <div>
                             <h3>Яхта Бейджера</h3>
-                        <p>здесь можно вставить кртакое описание сюжета конкретной игры</p>
+                        <p>Дерзкая кража на яхте на сумму в 50.000.000$. Нужно найти вора, пока яхта не причалила к берегу</p>
                         </div>
                         <h1>скоро...</h1>
                     </div>
@@ -34,7 +34,7 @@ export default {
         }
     },
     methods: {
-        redirect(title){
+        redirect(title) {
             this.$router.push(`/case/play/${title.toLowerCase().split(" ").join("-")}`)
         }
     }

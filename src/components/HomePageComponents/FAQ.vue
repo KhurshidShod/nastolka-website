@@ -3,11 +3,12 @@
         <img class="question_mark1" src="/src/assets/icons/quest1.svg" alt="">
         <img class="question_mark2" src="/src/assets/icons/quest2.svg" alt="">
         <div class="container">
-            <div class="faq">
-                <div class="faq_card" v-for="ques in questions" :key="ques.id">
+            <div class="faq" ref="faq">
+                <div class="faq_card" v-for="ques in questions.slice(0, visibles)" :key="ques.id">
                     <h1>{{ques.question}}</h1>
                     <p>{{ques.answer}}</p>
                 </div>
+                <p class="collapse" @click.prevent="expandFaqs()">{{visibles === 3 ? 'развернуть' : 'свернуть'}} все</p>
             </div>
         </div>
     </section>
@@ -17,6 +18,7 @@ import { questions } from '../../assets/data';
 export default {
     data() {
         return {
+            visibles: 3,
             questions: questions
         }
     },
@@ -33,6 +35,11 @@ export default {
                 questionMark1.style.transform = `translate(${(x - window.innerWidth / 2) * 0.05}px, ${(y - window.innerHeight / 2) * 0.05}px)`;
                 questionMark2.style.transform = `translate(${(x - window.innerWidth / 2) * 0.05}px, ${(y - window.innerHeight / 2) * 0.05}px)`;
             });
+        },
+        expandFaqs() {
+            const faqRef = this.$refs.faq;
+            this.visibles === 3 ? this.visibles = this.questions.length : this.visibles = 3
+            faqRef.scrollIntoView({ behavior: 'smooth' })
         }
     }
 }
@@ -78,9 +85,22 @@ section {
         display: flex;
         justify-content: center;
         align-items: stretch;
-        flex-direction: row;
         flex-wrap: wrap;
         gap: 20px;
+
+        p.collapse {
+            text-align: center;
+            font-family: 'Roboto';
+            cursor: pointer;
+            color: white;
+            padding: 10px 15px;
+            background-color: var(--bg-color);
+            font-size: 18px;
+            border-radius: 10px;
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
 
         &_card {
             width: calc(100% / 3 - 15px);
@@ -96,8 +116,8 @@ section {
             gap: 20px;
             padding: 1rem;
             min-width: 250px;
-            flex-grow: 0.75;
             z-index: 2;
+            flex-grow: 1;
 
             h1 {
                 color: #FFF;

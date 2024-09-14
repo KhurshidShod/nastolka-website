@@ -12,15 +12,27 @@
                 </div>
                 <div class="finished_detective">
                     <h1><span>ПОЗДРАВЛЯЮ,</span> ДЕТЕКТИВ</h1>
+                    <FinishedTime />
                     <p>Если вам понравилось расследовать преступления, подпишитесь на нашу E-MAIL рассылку, чтобы не пропустить новые дела!</p>
+                    <div class="enter_email">
+                        <div>
+                            <input type="email" placeholder="E-MAIL">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+  <path d="M3 13.2083H21.25M21.25 13.2083L16.0417 8M21.25 13.2083L16.0417 18.4167" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
 <script>
+import FinishedTime from '../components/FinishedTime.vue';
 export default {
-
+    components: {
+        FinishedTime
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -161,6 +173,57 @@ section {
             flex-direction: column;
             z-index: 2;
             padding: 0.5rem;
+
+            .enter_email {
+                width: 100%;
+                max-width: 650px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                margin-top: 2rem;
+                border-radius: 18px;
+                border: 1px solid #FFF;
+
+                div {
+                    position: relative;
+                    width: 100%;
+                    height: 40px;
+
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        border-bottom: 1px solid white;
+                        color: white;
+                        color: #FFF;
+                        font-family: 'Roboto';
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 130%;
+                        padding-bottom: 1rem;
+
+                        &::placeholder {
+                            color: #FFF;
+                            font-family: 'Roboto';
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 130%;
+                        }
+                    }
+
+                    svg {
+                        position: absolute;
+                        transform: translate(-50%, -50%);
+                        right: 0;
+                        top: 50%;
+                    }
+                }
+            }
 
             h1 {
                 color: #FEFEFF;

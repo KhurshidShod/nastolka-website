@@ -3,17 +3,15 @@
         <div class="container">
             <div class="confirmation">
                 <img class="lock" src="/src/assets/images/enter-code/lock.png" alt="">
-                <img class="lupa" src="/src/assets/images/best-detectives/d25914a2a059b9bdc9a4eb22ac03c56d.png" alt="">
+                <img class="lupa" src="/src/assets/images/enter-code/lupaimage.png" alt="">
                 <h2>Введите код</h2>
                 <div>
                     <p>Чтобы перейти к заданию 2, введите код, находящийся в конверте 1</p>
                 </div>
                 <div class="enter">
                     <input type="number" name="" id="">
-                    <svg @click.prevent="$router.push('playground/1')" xmlns="http://www.w3.org/2000/svg" width="60" height="53" viewBox="0 0 60 53" fill="none">
-  <rect width="60" height="53" rx="10" fill="#272727" fill-opacity="0.45"/>
-  <path d="M25.8389 38.5387L38.3695 25.6165L25.5311 13" stroke="white" stroke-width="2.475" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                    <img @click.prevent="$router.push('playground/1')" src="/src/assets/icons/confirmbtn.svg" alt="">
+
                 </div>
                 <p class="error_code" v-if="errorCode">Код неверный</p>
             </div>
@@ -22,11 +20,11 @@
 </template>
 <script>
 export default {
-data(){
-    return{
-        errorCode: false
+    data() {
+        return {
+            errorCode: false
+        }
     }
-}
 }
 </script>
 <style lang="scss" scoped>
@@ -57,11 +55,13 @@ section {
         gap: 2rem;
         background-position: left;
         background: url(/src/assets/images/enter-code/finger-white.png) rgba(211, 211, 211, 0) 50% / cover no-repeat;
-        .error_code{
+
+        .error_code {
             font-size: 18px;
             color: red;
             font-weight: 400;
         }
+
         @media (max-width: 1200px) {
             gap: 1rem;
             padding-inline: 100px 220px;
@@ -104,7 +104,7 @@ section {
             width: 440px;
             height: 460px;
             top: -5%;
-            left: -23%;
+            left: -17%;
 
             @media (max-width: 1200px) {
                 gap: 1rem;
@@ -126,10 +126,17 @@ section {
             }
 
             @media (max-width: 550px) {
-                left: -35%;
-                width: 250px;
-                height: 270px;
-                top: -10%;
+                left: -20%;
+                width: 200px;
+                height: 220px;
+                top: -5%;
+            }
+
+            @media (max-width: 350px) {
+                left: -40%;
+                width: 200px;
+                height: 220px;
+                top: -5%;
             }
         }
 
@@ -239,7 +246,7 @@ section {
                 height: 60px;
             }
 
-            svg {
+            img {
                 @media (max-width: 750px) {
                     height: 40px;
                 }
@@ -254,6 +261,7 @@ section {
                 border: none;
                 outline: none;
                 font-size: 42px;
+                z-index: 2;
 
                 @media (max-width: 750px) {
                     font-size: 24px;

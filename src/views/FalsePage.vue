@@ -9,7 +9,7 @@
                     <p>К сожалению, один из документов указан неверно. Перепроверьте улики или воспользуйтесь подсказкой.</p>
                 </div>
                 <div class="buttons">
-                <main-button text="Назад" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
+                <main-button @click.prevent="redirect()" text="Назад" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
                 <main-button text="Подсказка" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
                 </div>
             </div>
@@ -18,7 +18,11 @@
 </template>
 <script>
 export default {
-
+methods: {
+    redirect(){
+        this.$router.push(`/${this.$route.params.case}/playground/${this.$route.params.questionNumber}`)
+    }
+}
 }
 </script>
 <style lang="scss" scoped>

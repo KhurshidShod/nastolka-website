@@ -1,15 +1,15 @@
 <template lang="">
-    <CaseInfo />
-    <CaseOzon />
+    <CaseInfo openingPage="Unauthorized" />
+    <HowToPlay openingPage="case" />
 </template>
 <script>
 
 import CaseInfo from '../components/CasePageComponents/CaseInfo.vue';
-import CaseOzon from '../components/CasePageComponents/CaseOzon.vue';
+import HowToPlay from '../components/HowToPlay.vue';
 export default {
     components: {
         CaseInfo,
-        CaseOzon
+        HowToPlay
     }
 }
 </script>

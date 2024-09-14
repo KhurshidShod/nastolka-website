@@ -9,7 +9,7 @@
                     <p v-for="msg in currentCaseQuestion?.accepted" :key="msg">{{msg}}</p>
 
                 </div>
-                <main-button text="ДАЛЕЕ" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
+                <main-button @click.prevent="redirect()" text="ДАЛЕЕ" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
             </div>
         </div>
     </section>
@@ -19,13 +19,28 @@ import { cases } from '../assets/data';
 export default {
     data() {
         return {
-            currentCaseQuestion: null
+            currentCaseQuestion: null,
+            prevRoute: null,
+            currentCase: null
         }
+    },
+    beforeRouteEnter(to, from, next) {
+        next(vm => {
+            vm.prevRoute = from
+        })
     },
     methods: {
         findCurrentCase() {
             const path = this.$route.params.case.split("-").join(" ");
+            this.currentCase = cases.find(cs => cs.title.toLowerCase() === path);
             this.currentCaseQuestion = cases.find(cs => cs.title.toLowerCase() === path).caseQuestions.find(ques => ques.id == this.$route.params.questionNumber);
+        },
+        redirect() {
+            if (this.currentCase.caseQuestions.length == this.$route.params.questionNumber) {
+                this.$router.push(`/${this.$route.params.case}/finished`)
+            } else {
+                this.$router.push(`/${this.$route.params.case}/playground/${Number(this.$route.params.questionNumber) + 1}`)
+            }
         }
     },
     watch: {
@@ -35,6 +50,7 @@ export default {
     },
     mounted() {
         this.findCurrentCase()
+        console.log(this.prevRoute)
     }
 }
 </script>

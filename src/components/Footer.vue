@@ -20,25 +20,36 @@
                         <p>Если у вас остались вопросы, пожелания или идеи для новых игр, свяжитесь с нами в <span>WhatsApp</span> по номеру +7(000)100-02-05</p>
                     </div>
                     <div class="footer_right__input">
+                        <div class="subscribed" :class="{'open': isSubscribed}">
+                            <img @click.prevent="isSubscribed = false" src="/src/assets/icons/nav-close.svg" alt="">
+                            <p><b>Вы успешно подписались</b> на нашу рассылку!</p>
+                        </div>
                         <p><span>Подпишитесь,</span> чтобы не пропустить новые дела!</p>
-                        <div>
-                            <input placeholder="E-MAIL" type="text" name="" id="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <form>
+                            <input v-model="email" placeholder="E-MAIL" type="email" name="" id="">
+                            <svg @click.prevent="submitSubscribe()" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
   <path d="M3 13.2083H21.25M21.25 13.2083L16.0417 8M21.25 13.2083L16.0417 18.4167" stroke="#B3B3B3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="coder">
-            <p>Coded with ❤️ by 👨🏻‍💻<a href="http://devshodiyev.uz/" target="_blank">devshodiyev.uz</a></p>
         </div>
     </section>
 </template>
 <script>
 export default {
-
+    data() {
+        return {
+            email: "",
+            isSubscribed: false
+        }
+    },
+    methods: {
+        submitSubscribe() {
+            this.isSubscribed = true;
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -47,63 +58,6 @@ section {
     padding: 150px 105px;
     width: 100%;
     background-color: var(--bg-color);
-
-    .coder {
-        width: 100%;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        color: white;
-        font-family: 'LT Remark';
-        font-size: 14px;
-
-        p {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            letter-spacing: 1px;
-
-            &:hover {
-                a {
-                    left: 125px;
-                    opacity: 1;
-
-                    @media (max-width: 550px) {
-                        left: 0;
-                        bottom: 20px;
-                        opacity: 1;
-                    }
-                }
-            }
-
-            a {
-                position: absolute;
-                left: 120px;
-                
-                opacity: 0;
-                margin-left: 20px;
-                color: white;
-                text-decoration: none;
-                letter-spacing: 1px;
-                transition: .3s linear;
-                font-weight: 700;
-                background: linear-gradient(180deg, #CF0000 50%, #650000 99.59%);
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                @media (max-width: 550px) {
-                    bottom: 5px;
-                    left: 0;
-                }
-            }
-        }
-    }
 
     @media (max-width: 1150px) {
         padding: 100px 55px;
@@ -190,7 +144,6 @@ section {
 
             &__contact {
                 width: 100%;
-                background-color: red;
                 padding: 2rem;
                 display: flex;
                 justify-content: stretch;
@@ -238,7 +191,48 @@ section {
             }
 
             &__input {
+                position: relative;
                 width: 100%;
+
+                .subscribed {
+                    position: absolute;
+                    left: 0;
+                    top: -18%;
+                    width: 100%;
+                    display: inline-flex;
+                    padding: 50px 89px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 27px;
+                    background: rgba(52, 85, 40, 0.92);
+                    backdrop-filter: blur(5.0071940422058105px);
+                    z-index: 3;
+                    transition: .2s linear;
+                    transform: scale(0);
+
+                    &.open {
+                        transform: scale(1);
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        width: 15px;
+                        height: 15px;
+                        cursor: pointer;
+                    }
+
+                    p {
+                        color: #FFF;
+                        font-family: 'Roboto';
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
 
                 p {
                     span {
@@ -277,7 +271,7 @@ section {
                     }
                 }
 
-                div {
+                form {
                     position: relative;
                     width: 100%;
                     height: 50px;

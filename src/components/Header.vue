@@ -3,6 +3,7 @@
         <div class="container">
             <nav :class="{'toggled': isToggled}">
                 <div class="authorization" :class="{'visible-shrunk': isAuthOpen && isShrunk, 'visible-nonshrunk': isAuthOpen && !isShrunk}">
+                    <span @click.prevent="isAuthOpen = false"><img src="/src/assets/icons/nav-close.svg" alt=""></span>
                     <p>Войти</p>
                     <button>
                     <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
@@ -57,7 +58,7 @@ export default {
             if (this.isUserLoggedIn) {
                 this.$router.push("/profile")
             } else {
-                this.isAuthOpen = !this.isAuthOpen
+                this.isAuthOpen = true
             }
         }
     },
@@ -149,6 +150,18 @@ header {
                 font-style: normal;
                 font-weight: 700;
                 line-height: normal;
+            }
+
+            span {
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                cursor: pointer;
+
+                img {
+                    width: 15px;
+                    height: 15px;
+                }
             }
 
             button {

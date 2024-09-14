@@ -1,6 +1,6 @@
 <template lang="">
-    <CaseInfo />
-    <HowToPlay />
+    <CaseInfo openingPage="Authorized" />
+    <HowToPlay openingPage="case" />
 </template>
 <script>
 import CaseInfo from '../components/CasePageComponents/CaseInfo.vue';

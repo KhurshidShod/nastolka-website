@@ -1,6 +1,6 @@
 <template lang="">
     <Hero />
-    <HowToPlay />
+    <HowToPlay openingPage="home" />
     <FAQ />
     <BestDetectives />
     <Magasine />

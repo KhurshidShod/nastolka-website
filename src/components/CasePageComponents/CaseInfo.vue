@@ -2,37 +2,45 @@
     <section>
         <div class="container">
             <div class="case">
-                <!-- <h1>{{currentCase?.title.split(" ").slice(0,1).join("")}} <span>{{currentCase?.title.split(" ").slice(1,2).join("")}}</span> {{currentCase?.title.split(" ").slice(2).join(" ")}}</h1>
+                <h1>{{currentCase?.title.split(" ").slice(0,1).join("")}} <span>{{currentCase?.title.split(" ").slice(1,2).join("")}}</span> {{currentCase?.title.split(" ").slice(2).join(" ")}}</h1>
                 <p>{{currentCase?.description}}</p>
-                <main-button @click="redirect()" text="НАЧАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
-                <h3>КАК ИГРАТЬ?</h3> -->
-                <h1>загадочное <span>убийство</span> на вилле кортни</h1>
-                <p>11 июля 2020 года в маленьком городке Роадленд произошло шокирующее убийство Оливии Грин. Девушка была убита в собственном доме. Полиция арестовала Джейка Робинсона. Суд приговорил его к смертной казне. Ваша работа – изучить материалы дела, опровергнуть вину Джейка и найти настоящего убийцу.</p>
-                <main-button @click="redirect()" text="НАЧАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
-                <h3>КАК ИГРАТЬ?</h3>
+                <main-button v-if="openingPage === 'Authorized'" @click="redirect()" text="НАЧАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
+                <h3 v-if="openingPage === 'Authorized'">КАК ИГРАТЬ?</h3>
+                <div v-if="openingPage === 'Unauthorized'" class="buttons">
+                    <button>
+                        OZON
+                    </button>
+                    <button>
+                        WILDBERRIES
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 </template>
 <script>
-// import { cases } from '../../assets/data';
+import { cases } from '../../assets/data';
 export default {
+    props: ['openingPage'],
     data() {
         return {
             currentCase: null
         }
     },
-    // watch: {
-    //     '$route'() {
-    //         this.findCurrentCase();
-    //     }
-    // },
+    watch: {
+        '$route'() {
+            this.findCurrentCase();
+        }
+    },
+    mounted() {
+        this.findCurrentCase()
+    },
     methods: {
-        // findCurrentCase() {
-        // const path = this.$route.params.case.split("-").join(" ");
-        // this.currentCase = cases.find((cs) => cs.title.toLowerCase() === path)
-        // console.log(this.currentCase)
-        // },
+        findCurrentCase() {
+            const path = this.$route.params.case.split("-").join(" ");
+            this.currentCase = cases.find((cs) => cs.title.toLowerCase() === path)
+            console.log(this.currentCase)
+        },
         redirect() {
             this.$router.push(`/${this.currentCase.title.toLowerCase().split(" ").join("-")}/confirmation`)
         }
@@ -65,6 +73,60 @@ section {
         align-items: center;
         flex-direction: column;
         gap: 50px;
+
+        .buttons {
+            width: 65%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @media (max-width: 750px) {
+                width: 100%;
+                justify-content: space-evenly;
+            }
+
+            button {
+                display: inline-flex;
+                padding: 20px 44px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                color: #FFF;
+                text-align: center;
+                font-family: 'Roboto';
+                font-size: 42px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+
+                @media (max-width: 1100px) {
+                    padding: 15px 35px;
+                    font-size: 36px;
+                }
+
+                @media (max-width: 950px) {
+                    padding: 10px 25px;
+                    font-size: 28px;
+                }
+
+                @media (max-width: 550px) {
+                    padding: 12px 25px;
+                    font-size: 18px;
+                }
+
+                &:first-child {
+                    border-radius: 11px;
+                    background: #005BFF;
+                    box-shadow: 0px 0px 45px 0px #005BFF;
+                }
+
+                &:last-child {
+                    border-radius: 11px;
+                    background: linear-gradient(90deg, #E23AC3 0%, #791BED 100%);
+                    box-shadow: 0px 0px 45px 0px #AD20B5;
+                }
+            }
+        }
 
         h1 {
             color: #FFF;
