@@ -10,19 +10,41 @@
                 </div>
                 <div class="buttons">
                 <main-button @click.prevent="redirect()" text="Назад" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
-                <main-button text="Подсказка" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
+                <div class="podskazka">
+                    <main-button @click.prevent="helpOpen = !helpOpen" text="Подсказка" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
+                    <div class="help" :class="{open: helpOpen}">{{currentCase?.help[0]}}</div>
+                </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
 <script>
+import { cases } from '../assets/data';
 export default {
-methods: {
-    redirect(){
-        this.$router.push(`/${this.$route.params.case}/playground/${this.$route.params.questionNumber}`)
+    data() {
+        return {
+            currentCase: null,
+            helpOpen: false
+        }
+    },
+    methods: {
+        redirect() {
+            this.$router.push(`/${this.$route.params.case}/playground/${this.$route.params.questionNumber}`)
+        },
+        findCurrentCase() {
+            const path = this.$route.params.case.split("-").join(" ");
+            this.currentCase = cases.find(cs => cs.title.toLowerCase() === path).caseQuestions.find(ques => ques.id == this.$route.params.questionNumber);
+        },
+    },
+    watch: {
+        '$route'() {
+            this.findCurrentCase();
+        }
+    },
+    mounted() {
+        this.findCurrentCase()
     }
-}
 }
 </script>
 <style lang="scss" scoped>
@@ -75,6 +97,7 @@ section {
         @media (max-width: 600px) {
             padding-inline: 50px;
         }
+
         @media (max-width: 500px) {
             padding-inline: 10px;
         }
@@ -84,6 +107,38 @@ section {
             display: flex;
             justify-content: space-around;
             flex-direction: row;
+
+
+            .podskazka {
+                position: relative;
+                border-top-left-radius: 11px;
+                border-top-right-radius: 11px;
+                .help {
+                    width: 100%;
+                    height: 0px;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 87%;
+                    padding-inline: .5rem;
+                    text-align: center;
+                    color: #FFF;
+                    text-align: center;
+                    font-family: 'Roboto';
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 110%;
+                    background: linear-gradient(180deg, rgba(207, 0, 0, 0.87) 0%, rgba(101, 0, 0, 0.87) 100%);
+                    backdrop-filter: blur(3.2123777866363525px);
+                    transition: .1s linear;
+                    &.open{
+                        height: 150px;
+                    }
+                    @media (max-width: 700px) {
+                        font-size: 16px;
+                    }
+                }
+            }
 
             button {
                 padding: 10px 25px;
