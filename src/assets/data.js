@@ -184,7 +184,7 @@ export const cases = [
       {
         id: 2,
         question: "Вы можете доказать невиновность Джейка Робинсона?",
-        playerVersionNeeded: true,
+        playerVersionNeeded: false,
         condition: "Выберите 2 документа, которые опровергают его вину",
         options: [
           {
@@ -268,7 +268,7 @@ export const cases = [
         id: 4,
         question: "Вы можете доказать невиновность Джейка Робинсона?",
         condition: "Выберите 5 документа, которые опровергают его вину",
-        playerVersionNeeded: false,
+        playerVersionNeeded: true,
         options: [
           {
             id: 0,

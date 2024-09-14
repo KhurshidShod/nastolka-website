@@ -8,7 +8,10 @@
                     <h1>{{ques.question}}</h1>
                     <p>{{ques.answer}}</p>
                 </div>
+                <div class="collapse_wrapper">
                 <p class="collapse" @click.prevent="expandFaqs()">{{visibles === 3 ? 'развернуть' : 'свернуть'}} все</p>
+
+                </div>
             </div>
         </div>
     </section>
@@ -88,17 +91,25 @@ section {
         flex-wrap: wrap;
         gap: 20px;
 
-        p.collapse {
-            text-align: center;
-            font-family: 'Roboto';
-            cursor: pointer;
-            color: white;
-            padding: 10px 15px;
-            background-color: var(--bg-color);
-            font-size: 18px;
-            border-radius: 10px;
-            &::first-letter {
-                text-transform: uppercase;
+        .collapse_wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p.collapse {
+                text-align: center;
+                font-family: 'Roboto';
+                cursor: pointer;
+                color: white;
+                padding: 10px 15px;
+                background: linear-gradient(180deg, rgba(207, 0, 0, 0.87) 0%, rgba(101, 0, 0, 0.87) 100%);
+                backdrop-filter: blur(3.2123777866363525px);
+                font-size: 18px;
+                border-radius: 10px;
+
+                &::first-letter {
+                    text-transform: uppercase;
+                }
             }
         }
 

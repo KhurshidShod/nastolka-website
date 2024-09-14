@@ -6,14 +6,8 @@
     <Magasine />
 </template>
 <script>
-// import Hero from '../components/HomePageComponents/Hero.vue';
-// import HowToPlay from '../components/HowToPlay.vue';
-// import FAQ from '../components/HomePageComponents/FAQ.vue';
-// import BestDetectives from '../components/HomePageComponents/BestDetectives.vue';
 
 import { defineAsyncComponent } from 'vue';
-
-// import Magasine from '../components/HomePageComponents/Magasine.vue';
 export default {
     components: {
         Hero: defineAsyncComponent(() =>

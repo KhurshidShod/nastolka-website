@@ -288,7 +288,7 @@ section {
             position: relative;
             width: 850px;
             padding: 2rem;
-            margin-top: 220px;
+            margin-top: 100px;
             display: flex;
             justify-content: start;
             align-items: center;
@@ -300,6 +300,7 @@ section {
 
             @media (max-width: 650px) {
                 width: 500px;
+                margin-top: 50px;
             }
 
             @media (max-width: 450px) {

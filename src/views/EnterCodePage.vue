@@ -9,8 +9,8 @@
                     <p>Чтобы перейти к заданию 2, введите код, находящийся в конверте 1</p>
                 </div>
                 <div class="enter">
-                    <input type="number" name="" id="">
-                    <img @click.prevent="$router.push('playground/1')" src="/src/assets/icons/confirmbtn.svg" alt="">
+                    <input v-model="playersInput" type="number" name="" id="">
+                    <img @click.prevent="redirect()" src="/src/assets/icons/confirmbtn.svg" alt="">
 
                 </div>
                 <p class="error_code" v-if="errorCode">Код неверный</p>
@@ -22,7 +22,31 @@
 export default {
     data() {
         return {
-            errorCode: false
+            errorCode: false,
+            prevPage: null,
+            code: 1234,
+            playersInput: null
+        }
+    },
+    beforeRouteEnter(to, from, next) {
+        next(vm => {
+            vm.prevPage = from.params
+        })
+    },
+    methods: {
+        redirect() {
+            if (this.code === this.playersInput) {
+                if (this.prevPage?.hasOwnProperty('questionNumber')) {
+                    this.$router.push(`playground/${Number(this.prevPage.questionNumber) + 1}`)
+                } else {
+                    this.$router.push(`playground/1`)
+                }
+            } else {
+                this.errorCode = true;
+                setTimeout(() => {
+                    this.errorCode = false
+                }, 3000);
+            }
         }
     }
 }

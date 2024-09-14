@@ -39,7 +39,7 @@ export default {
             if (this.currentCase.caseQuestions.length == this.$route.params.questionNumber) {
                 this.$router.push(`/${this.$route.params.case}/finished`)
             } else {
-                this.$router.push(`/${this.$route.params.case}/playground/${Number(this.$route.params.questionNumber) + 1}`)
+                this.$router.push(`/${this.$route.params.case}/confirmation`)
             }
         }
     },
@@ -50,7 +50,6 @@ export default {
     },
     mounted() {
         this.findCurrentCase()
-        console.log(this.prevRoute)
     }
 }
 </script>
