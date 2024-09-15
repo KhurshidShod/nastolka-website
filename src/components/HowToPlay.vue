@@ -1,7 +1,7 @@
 <template lang="">
     <section>
-        <img class="hero_camera" src="/src/assets/images/hero/camera.png" alt="">
-        <img class="dnevnik" src="/src/assets/images/howtoplay/dnevnik.png" alt="">
+        <img class="hero_camera" :class="{sculpture: openingPage === 'case'}" :src="openingPage === 'home' ? '/src/assets/images/hero/camera.png' : '/src/assets/images/howtoplay/sculpture.png'" alt="">
+        <img class="dnevnik" :class="{kartinka: openingPage === 'case'}" :src="openingPage === 'home' ? '/src/assets/images/howtoplay/dnevnik.png' : '/src/assets/images/howtoplay/image.png'"  alt="">
         <div class="container">
             <div class="howToPlay">
                 <h1 class="howToPlay_header"><img ref="lupaText" src="/src/assets/images/howtoplay/lupahowtoplay.png" alt=""> КАК ИГРАТЬ?</h1>
@@ -63,7 +63,7 @@ export default {
                     duration: 5,
                     scrollTrigger: {
                         trigger: this.$refs.lupaText,
-                        start: "top 60%",
+                        start: "top 50%",
                         end: "bottom 50%",
                         scrub: 1.3,
                         toggleActions: "play none none reverse"
@@ -113,6 +113,29 @@ section {
             width: 150px;
             top: 0%;
         }
+
+        &.sculpture {
+            width: 360px;
+            height: 820px;
+            top: 20%;
+            right: -1%;
+
+            @media (max-width: 1100px) {
+                width: 300px;
+                top: 15%;
+            }
+
+            @media (max-width: 900px) {
+                width: 250px;
+                height: 700px;
+            }
+
+            @media (max-width: 450px) {
+                width: 150px;
+                height: 350px;
+                top: 0%;
+            }
+        }
     }
 
     .dnevnik {
@@ -136,12 +159,23 @@ section {
 
         @media (max-width: 600px) {
             width: 200px;
-            top: 12%;
         }
 
         @media (max-width: 450px) {
             width: 120px;
             top: 7%;
+        }
+
+        &.kartinka {
+            @media (max-width: 750px) {
+                width: 250px;
+                top: 5%;
+            }
+
+            @media (max-width: 450px) {
+                width: 200px;
+                top: 0%;
+            }
         }
     }
 
@@ -303,6 +337,7 @@ section {
                     max-width: 650px;
                     min-width: 200px;
                     border-radius: 2px;
+                    z-index: 2;
 
                     @media (max-width: 850px) {
                         width: 100%;
@@ -327,9 +362,10 @@ section {
                     }
 
                     .image_card {
-                        width: 460px;
+                        width: 500px;
                         height: 320px;
                         background-color: white;
+                        border-radius: 20px;
 
                         @media (max-width: 900px) {
                             width: 350px;
