@@ -443,6 +443,11 @@ section {
                 }
 
                 &.open {
+                    .top{
+                        svg{
+                            transform: rotate(180deg);
+                        }
+                    }
                     .bottom {
                         padding: 80px 10px;
                         height: auto;

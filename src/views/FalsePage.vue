@@ -11,7 +11,9 @@
                 <div class="buttons">
                 <main-button @click.prevent="redirect()" text="Назад" :fontSize="30" :padInline="30" :padBlock="14"></main-button>
                 <div class="podskazka">
-                    <button :class="{open: helpOpen}" @click.prevent="helpOpen = !helpOpen">Подсказка</button>
+                    <button :class="{open: helpOpen}" @click.prevent="helpOpen = !helpOpen">Подсказка <svg xmlns="http://www.w3.org/2000/svg" width="34" height="35" viewBox="0 0 34 35" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M27.3361 23.067C28.1392 23.8701 29.4413 23.8701 30.2444 23.067C31.0475 22.2639 31.0475 20.9618 30.2444 20.1587L17.9057 7.82002C17.1026 7.01693 15.8005 7.01693 14.9974 7.82002L2.65868 20.1587C1.85559 20.9618 1.85559 22.2639 2.65868 23.067C3.46178 23.8701 4.76385 23.8701 5.56694 23.067L16.4515 12.1824L27.3361 23.067Z" fill="white"/>
+                        </svg></button>
                     <div class="help" :class="{open: helpOpen}">
                         <div class="help-content" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
                                 <div v-for="(helpItem, index) in currentCase?.help" :key="index" class="help-item">
@@ -145,7 +147,7 @@ section {
                     padding: 14px 25px;
                     justify-content: center;
                     align-items: center;
-                    gap: 20px;
+                    gap: 10px;
                     color: #FFF;
                     text-align: center;
                     font-family: 'Roboto';
@@ -157,7 +159,10 @@ section {
                     background: linear-gradient(180deg, #CF0000 0%, #650000 100%);
                     box-shadow: 0px 0px 45px 0px #9E0B0B;
                     cursor: pointer;
-
+                    svg{
+                        width: 20px;
+                        height: 20px;
+                    }
                     @media (max-width: 900px) {
                         padding: 16px 22px;
                         font-size: 18px;
@@ -171,6 +176,9 @@ section {
                     &.open {
                         border-bottom-left-radius: 0;
                         border-bottom-right-radius: 0;
+                        svg{
+                            transform: rotate(180deg);
+                        }
                     }
                 }
 
