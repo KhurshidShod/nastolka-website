@@ -1,3 +1,4 @@
+import image from '@/assets/images/magazine/caseimage.png'
 export const rules = [
   {
     id: 0,
@@ -137,7 +138,7 @@ export const cases = [
     title: "Загадочное убийство на вилле Кортни",
     description:
       "11 июля 2020 года в маленьком городке Роадленд произошло шокирующее убийство Оливии Грин. Девушка была убита в собственном доме. Полиция арестовала Джейка Робинсона. Суд приговорил его к смертной казне. Ваша работа – изучить материалы дела, опровергнуть вину Джейка и найти настоящего убийцу.",
-    image: require("@/assets/images/magazine/185480d0cf28dd4355da38b3223e42a5.png"),
+    image: image,
     caseQuestions: [
       {
         id: 1,
