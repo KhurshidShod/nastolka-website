@@ -42,13 +42,12 @@ export default {
     methods: {
         async redirect() {
             if (this.code === this.playersInput) {
-                this.openPushUp();
-
-                await this.waitForPushUpClose();
 
                 if (this.prevPage?.hasOwnProperty('questionNumber')) {
                     this.$router.push(`playground/${Number(this.prevPage.questionNumber) + 1}`);
                 } else {
+                    this.openPushUp();
+                    await this.waitForPushUpClose();
                     this.$router.push(`playground/1`);
                 }
             } else {
@@ -78,7 +77,6 @@ export default {
         }
     }
 };
-
 </script>
 <style lang="scss" scoped>
 section {

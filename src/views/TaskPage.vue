@@ -408,6 +408,8 @@ section {
                         }
 
                         svg {
+                            transform: rotate(180deg);
+
                             @media (max-width: 850px) {
                                 width: 25px;
                                 height: 25px;
@@ -443,11 +445,12 @@ section {
                 }
 
                 &.open {
-                    .top{
-                        svg{
-                            transform: rotate(180deg);
+                    .top {
+                        svg {
+                            transform: rotate(0deg);
                         }
                     }
+
                     .bottom {
                         padding: 80px 10px;
                         height: auto;

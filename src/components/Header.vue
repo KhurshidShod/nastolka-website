@@ -142,14 +142,14 @@ header {
             }
 
             &.visible-shrunk {
-                top: 85px;
+                top: 80px;
                 opacity: 1;
                 z-index: 9;
                 visibility: visible;
             }
 
             &.visible-nonshrunk {
-                top: 185px;
+                top: 135px;
                 opacity: 1;
                 z-index: 9;
                 visibility: visible;

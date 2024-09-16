@@ -1,10 +1,10 @@
 <template>
-  <Loading v-if="isLoading" />
-  <div v-else>
-    <Header />
-    <router-view></router-view>
-    <Footer />
-  </div>
+  <!-- <Loading />
+  <div v-else> -->
+  <Header />
+  <router-view></router-view>
+  <Footer />
+  <!-- </div> -->
 </template>
 <script>
 import Footer from './components/Footer.vue';
@@ -18,14 +18,14 @@ export default {
   },
   data() {
     return {
-      isLoading: true,
+      // isLoading: true,
     };
-  },
-  created() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 4000);
   }
+  // created() {
+  //   setTimeout(() => {
+  //     this.isLoading = false;
+  //   }, 4000);
+  // }
 }
 </script>
 <style scoped></style>

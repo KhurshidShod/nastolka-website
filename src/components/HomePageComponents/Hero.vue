@@ -1,5 +1,6 @@
 <template lang="">
-    <section id="main">
+    <LoadingVue v-if="isLoading" />
+    <section v-else id="main">
         <div class="container">
             <div class="hero">
                 <div>
@@ -15,7 +16,21 @@
 </template>
 <script>
 import { cases } from '../../assets/data';
+import LoadingVue from '../Loading.vue';
 export default {
+    components: {
+        LoadingVue
+    },
+    data() {
+        return {
+            isLoading: true
+        }
+    },
+    created() {
+        setTimeout(() => {
+            this.isLoading = false
+        }, 3000);
+    },
     methods: {
         redirect() {
             this.$router.push(`/case/${cases[0].title.toLowerCase().split(" ").join("-")}`)

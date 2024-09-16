@@ -14,6 +14,9 @@ export default {
 
 <style lang="scss" scoped>
 .loading {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   background-color: var(--bg-color);
@@ -25,6 +28,7 @@ export default {
   gap: 3rem;
   text-align: center;
   padding: 1rem;
+  overflow: hidden;
 
   h1 {
     font-size: 45px;
