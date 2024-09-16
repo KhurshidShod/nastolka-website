@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         redirect(title) {
-            this.$router.push(`/case/play/${title.toLowerCase().split(" ").join("-")}`)
+            this.$router.push(`/case/${title.toLowerCase().split(" ").join("-")}`)
         }
     }
 }

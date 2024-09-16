@@ -28,9 +28,9 @@ const router = createRouter({
 
 router.beforeEach((to, from) => {
   window.scrollTo(0, 0)
-  if(to.name === "Case Authorized" && !localStorage.getItem("username")){
-    return {name: "Case", params: {case: to.params.case}}
-  }
+  // if(to.name === "Case Authorized" && !localStorage.getItem("username")){
+  //   return {name: "Case", params: {case: to.params.case}}
+  // }
   if(from.name === "Finished" && to.name === "True Answer"){
     return {name: "Home"}
   }

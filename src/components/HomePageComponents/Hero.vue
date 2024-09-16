@@ -14,10 +14,11 @@
     </section>
 </template>
 <script>
+import { cases } from '../../assets/data';
 export default {
     methods: {
         redirect() {
-            this.$router.push("/case")
+            this.$router.push(`/case/${cases[0].title.toLowerCase().split(" ").join("-")}`)
         }
     }
 }

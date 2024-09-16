@@ -97,7 +97,7 @@ section {
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
-
+                cursor: pointer;
                 @media (max-width: 1100px) {
                     padding: 15px 35px;
                     font-size: 36px;

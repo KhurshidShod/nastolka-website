@@ -1,7 +1,9 @@
 <template lang="">
     <section>
-        <img class="hero_camera" :class="{sculpture: openingPage === 'case'}" :src="openingPage === 'home' ? '/src/assets/images/hero/camera.png' : '/src/assets/images/howtoplay/sculpture.png'" alt="">
-        <img class="dnevnik" :class="{kartinka: openingPage === 'case'}" :src="openingPage === 'home' ? '/src/assets/images/howtoplay/dnevnik.png' : '/src/assets/images/howtoplay/image.png'"  alt="">
+        <img class="hero_camera" :class="{sculpture: openingPage === 'case'}" v-if="openingPage === 'home'" src="/src/assets/images/hero/camera.png" alt="">
+        <img class="hero_camera" :class="{sculpture: openingPage === 'case'}" v-if="openingPage === 'case'" src="/src/assets/images/howtoplay/sculpture.png" alt="">
+        <img class="dnevnik" :class="{kartinka: openingPage === 'case'}" v-if="openingPage === 'home'" src="/src/assets/images/howtoplay/dnevnik.png"  alt="">
+        <img class="dnevnik" :class="{kartinka: openingPage === 'case'}" v-if="openingPage === 'case'" src="/src/assets/images/howtoplay/image.png"  alt="">
         <div class="container">
             <div class="howToPlay">
                 <h1 class="howToPlay_header"><img ref="lupaText" src="/src/assets/images/howtoplay/lupahowtoplay.png" alt=""> КАК ИГРАТЬ?</h1>
@@ -117,7 +119,7 @@ section {
         &.sculpture {
             width: 360px;
             height: 820px;
-            top: 20%;
+            top: 10%;
             right: -1%;
 
             @media (max-width: 1100px) {
@@ -267,7 +269,10 @@ section {
 
             &.case {
                 flex-direction: column;
-
+                width: 80%;
+                @media (max-width: 950px) {
+                    width: 100%;
+                }
                 .howToPlay_tips_group {
                     width: 100%;
 
@@ -362,7 +367,7 @@ section {
                     }
 
                     .image_card {
-                        width: 500px;
+                        width: 65%;
                         height: 320px;
                         background-color: white;
                         border-radius: 20px;
@@ -413,13 +418,13 @@ section {
 
                             @media (max-width: 650px) {
                                 font-size: 120px;
-                                right: 5%;
+                                right: 20%;
                                 top: -50%;
                             }
 
                             @media (max-width: 450px) {
                                 font-size: 62px;
-                                right: 0;
+                                right: 25%;
                             }
                         }
 
