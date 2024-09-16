@@ -1,5 +1,6 @@
 <template lang="">
     <section>
+        <AuthorizePushUp v-if="pushUpOpen" @close-pushup='closePushup()' />
         <div class="container">
             <div class="confirmation">
                 <img class="lock" src="/src/assets/images/enter-code/lock.png" alt="">
@@ -19,37 +20,65 @@
     </section>
 </template>
 <script>
+import AuthorizePushUp from '../components/AuthorizePushUp.vue';
 export default {
+    components: {
+        AuthorizePushUp
+    },
     data() {
         return {
             errorCode: false,
             prevPage: null,
             code: 1234,
-            playersInput: null
-        }
+            playersInput: null,
+            pushUpOpen: false,
+        };
     },
     beforeRouteEnter(to, from, next) {
         next(vm => {
-            vm.prevPage = from.params
-        })
+            vm.prevPage = from.params;
+        });
     },
     methods: {
-        redirect() {
+        async redirect() {
             if (this.code === this.playersInput) {
+                this.openPushUp();
+
+                await this.waitForPushUpClose();
+
                 if (this.prevPage?.hasOwnProperty('questionNumber')) {
-                    this.$router.push(`playground/${Number(this.prevPage.questionNumber) + 1}`)
+                    this.$router.push(`playground/${Number(this.prevPage.questionNumber) + 1}`);
                 } else {
-                    this.$router.push(`playground/1`)
+                    this.$router.push(`playground/1`);
                 }
             } else {
                 this.errorCode = true;
                 setTimeout(() => {
-                    this.errorCode = false
+                    this.errorCode = false;
                 }, 3000);
             }
+        },
+        openPushUp() {
+            this.pushUpOpen = true;
+        },
+        closePushup() {
+            this.pushUpOpen = false;
+        },
+        waitForPushUpClose() {
+            return new Promise(resolve => {
+                const checkPushUp = () => {
+                    if (!this.pushUpOpen) {
+                        resolve();
+                    } else {
+                        requestAnimationFrame(checkPushUp);
+                    }
+                };
+                checkPushUp();
+            });
         }
     }
-}
+};
+
 </script>
 <style lang="scss" scoped>
 section {
