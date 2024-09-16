@@ -5,11 +5,11 @@
                 <div class="authorization" :class="{'visible-shrunk': isAuthOpen && isShrunk, 'visible-nonshrunk': isAuthOpen && !isShrunk}">
                     <span @click.prevent="isAuthOpen = false"><img src="/src/assets/icons/nav-close.svg" alt=""></span>
                     <p>Войти</p>
-                    <button>
+                    <a href="https://t.me/rouqot" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
                         <path d="M38.2767 8.60372C38.5439 6.86874 36.9019 5.49931 35.3663 6.17662L4.7822 19.6665C3.68102 20.1523 3.76157 21.8281 4.90366 22.1934L11.2108 24.2112C12.4147 24.5964 13.7181 24.3971 14.7693 23.6676L28.9894 13.798C29.4182 13.5004 29.8856 14.113 29.5192 14.4923L19.2833 25.0941C18.2904 26.1227 18.4874 27.8654 19.6819 28.6178L31.142 35.8375C32.4274 36.6472 34.0809 35.8339 34.3213 34.2733L38.2767 8.60372Z" fill="white"/>
                     </svg>
-                    Log in with Telegram</button>
+                    Log in with Telegram</a>
                 </div>
                 <ul class="menu">
                     <li><a href="#main" @click.prevent="scrollTo('main')">Главная</a></li>
@@ -176,9 +176,9 @@ header {
                 }
             }
 
-            button {
+            a {
                 cursor: pointer;
-
+                text-decoration: none;
                 svg {
                     width: 25px;
                     height: 25px;
