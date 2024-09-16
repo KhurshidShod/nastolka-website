@@ -76,6 +76,7 @@ export default {
             height: 20px;
             top: 25px;
             right: 25px;
+            cursor: pointer;
         }
 
         h1 {
