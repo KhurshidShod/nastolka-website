@@ -8,15 +8,18 @@
 </template>
 
 <script>
-import Footer from './components/Footer.vue';
-import Header from './components/Header.vue';
-import Loading from './components/Loading.vue';
-
+import { defineAsyncComponent } from 'vue';
 export default {
   components: {
-    Header,
-    Loading,
-    Footer
+    Header: defineAsyncComponent(() =>
+      import("./components/Header.vue")
+    ),
+    Loading: defineAsyncComponent(() =>
+      import("./components/Loading.vue")
+    ),
+    Footer: defineAsyncComponent(() =>
+      import("./components/Footer.vue")
+    )
   },
   data() {
     return {

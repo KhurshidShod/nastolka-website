@@ -4,12 +4,16 @@
 </template>
 <script>
 
-import CaseInfo from '../components/CasePageComponents/CaseInfo.vue';
-import HowToPlay from '../components/HowToPlay.vue';
+import { defineAsyncComponent } from 'vue';
+
 export default {
     components: {
-        CaseInfo,
-        HowToPlay
+        CaseInfo: defineAsyncComponent(() =>
+            import("../components/CasePageComponents/CaseInfo.vue")
+        ),
+        HowToPlay: defineAsyncComponent(() =>
+            import("../components/HowToPlay.vue")
+        )
     }
 }
 </script>

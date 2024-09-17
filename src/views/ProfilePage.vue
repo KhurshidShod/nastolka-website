@@ -22,10 +22,12 @@
     </section>
 </template>
 <script>
-import FinishedTime from '../components/FinishedTime.vue';
+import { defineAsyncComponent } from 'vue';
 export default {
     components: {
-        FinishedTime
+        FinishedTime: defineAsyncComponent(() =>
+            import("../components/FinishedTime.vue")
+        )
     }
 }
 </script>
@@ -77,7 +79,7 @@ section {
                     padding: 1rem;
                 }
 
-                
+
 
                 &_info {
                     width: 100%;

@@ -20,10 +20,12 @@
     </section>
 </template>
 <script>
-import AuthorizePushUp from '../components/AuthorizePushUp.vue';
+import { defineAsyncComponent } from 'vue';
 export default {
     components: {
-        AuthorizePushUp
+        AuthorizePushUp: defineAsyncComponent(() =>
+            import("../components/AuthorizePushUp.vue")
+        )
     },
     data() {
         return {
