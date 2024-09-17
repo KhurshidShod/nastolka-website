@@ -161,6 +161,7 @@ section {
                     cursor: pointer;
                     svg{
                         width: 20px;
+                        transform: rotate(180deg);
                         height: 20px;
                     }
                     @media (max-width: 900px) {
@@ -177,7 +178,7 @@ section {
                         border-bottom-left-radius: 0;
                         border-bottom-right-radius: 0;
                         svg{
-                            transform: rotate(180deg);
+                            transform: rotate(0deg);
                         }
                     }
                 }
@@ -218,7 +219,7 @@ section {
                                 width: 20px;
                                 height: 20px;
                                 cursor: pointer;
-
+                                transform: rotate(0);
                                 path {
                                     fill: white;
                                 }

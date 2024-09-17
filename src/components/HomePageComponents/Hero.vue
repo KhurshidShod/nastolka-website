@@ -1,6 +1,5 @@
 <template lang="">
-    <LoadingVue v-if="isLoading" />
-    <section v-else id="main">
+    <section id="main">
         <div class="container">
             <div class="hero">
                 <div>

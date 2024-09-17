@@ -5,7 +5,7 @@
                 <h1>{{currentCase?.title.split(" ").slice(0,1).join("")}} <span>{{currentCase?.title.split(" ").slice(1,2).join("")}}</span> {{currentCase?.title.split(" ").slice(2).join(" ")}}</h1>
                 <p>{{currentCase?.description}}</p>
                 <main-button v-if="openingPage === 'Authorized'" @click="redirect()" text="НАЧАТЬ" :fontSize="42" :padInline="44" :padBlock="20"></main-button>
-                <h3 v-if="openingPage === 'Authorized'">КАК ИГРАТЬ?</h3>
+                <h3 v-if="openingPage === 'Unauthorized'">КАК ИГРАТЬ?</h3>
                 <div v-if="openingPage === 'Unauthorized'" class="buttons">
                     <button>
                         OZON
