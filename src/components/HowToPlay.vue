@@ -34,6 +34,7 @@
                         </div>
                     </div>
                     </div>
+                    <main-button class="play_button" v-if="openingPage === 'case'" text="Играть" :padBlock="20" :padInline="44" :fontSize="28"></main-button>
                 </div>
             </div>
         </div>
@@ -262,11 +263,13 @@ section {
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: stretch;
+            align-items: center;
             flex-direction: row;
             flex-wrap: wrap;
             gap: 75px;
-
+            .play_button{
+                max-width: 400px;
+            }
             &.case {
                 flex-direction: column;
                 width: 80%;
