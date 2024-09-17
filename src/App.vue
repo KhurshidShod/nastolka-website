@@ -6,10 +6,12 @@
     <Footer />
   </div>
 </template>
+
 <script>
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue';
 import Loading from './components/Loading.vue';
+
 export default {
   components: {
     Header,
@@ -21,11 +23,20 @@ export default {
       isLoading: true,
     };
   },
-  created() {
-    setTimeout(() => {
+  mounted() {
+    window.addEventListener('load', this.hideLoading);
+    console.log(this.isLoading)
+  },
+  beforeDestroy() {
+    window.removeEventListener('load', this.hideLoading);
+    console.log(this.isLoading)
+  },
+  methods: {
+    hideLoading() {
       this.isLoading = false;
-    }, 4000);
+    },
   }
 }
 </script>
+
 <style scoped></style>

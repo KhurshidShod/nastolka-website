@@ -35,7 +35,6 @@ button {
     gap: 10px;
     border-radius: 11px;
     background: var(--color-red);
-    box-shadow: 0px 0px 45px 0px #9E0B0B;
     color: #FFF;
     text-align: center;
     font-family: 'Roboto';
@@ -43,6 +42,11 @@ button {
     font-weight: 500;
     line-height: normal;
     cursor: pointer;
+    transition: .3s linear;
+
+    &:hover {
+        box-shadow: 0px 0px 45px 0px #9E0B0B;
+    }
 
     @media (max-width: 900px) {
         padding: 16px 22px !important;
