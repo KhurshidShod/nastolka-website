@@ -3,7 +3,7 @@ import "./style.css";
 import App from "./App.vue";
 import router from "./routes";
 import Button from "./components/Reusables/Button.vue";
-import VueLazyload from "vue-lazyload";
+import VueLazyload from "vue3-lazyload";
 const app = createApp(App);
 
 app.component("MainButton", Button);
