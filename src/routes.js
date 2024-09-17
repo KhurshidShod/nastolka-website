@@ -1,44 +1,58 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import HomePage from "./views/HomePage.vue";
-import AuthorizedPage from "./views/AuthorizedPage.vue";
-import ProfilePage from "./views/ProfilePage.vue";
-import CasePage from "./views/CasePage.vue";
-import CaseAuthorizedPage from "./views/CaseAuthorizedPage.vue";
-import TrueAnswer from "./views/TrueAnswerPage.vue";
-import FalsePage from "./views/FalsePage.vue";
-import TaskPage from "./views/TaskPage.vue";
-import EnterCodePage from "./views/EnterCodePage.vue";
-import CaseFinished from "./views/CaseFinished.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
-    { path: "/", component: HomePage, name: "Home" },
-    { path: "/authorized", component: AuthorizedPage, name: "Authorized" },
-    { path: "/profile", component: ProfilePage, name: "Profile" },
-    { path: "/case/:case", component: CasePage, name: "Case" },
+    {
+      path: "/",
+      component: () => import("./views/HomePage.vue"),
+      name: "Home",
+    },
+    {
+      path: "/authorized",
+      component: () => import("./views/AuthorizedPage.vue"),
+      name: "Authorized",
+    },
+    {
+      path: "/profile",
+      component: () => import("./views/ProfilePage.vue"),
+      name: "Profile",
+    },
+    {
+      path: "/case/:case",
+      component: () => import("./views/CasePage.vue"),
+      name: "Case",
+    },
     {
       path: "/case/play/:case",
-      component: CaseAuthorizedPage,
+      component: () => import("./views/CaseAuthorizedPage.vue"),
       name: "Case Authorized",
     },
     {
       path: "/:case/:questionNumber/true",
-      component: TrueAnswer,
+      component: () => import("./views/TrueAnswerPage.vue"),
       name: "True Answer",
     },
     {
       path: "/:case/:questionNumber/false",
-      component: FalsePage,
+      component: () => import("./views/FalsePage.vue"),
       name: "False Answer",
     },
-    { path: "/:case/playground/:taskNum", component: TaskPage, name: "Task" },
+    {
+      path: "/:case/playground/:taskNum",
+      component: () => import("./views/TaskPage.vue"),
+      name: "Task",
+    },
     {
       path: "/:case/confirmation",
-      component: EnterCodePage,
+      component: () => import("./views/EnterCodePage.vue"),
       name: "Confirmation",
     },
-    { path: "/:case/finished", component: CaseFinished, name: "Finished" },
+    {
+      path: "/:case/finished",
+      component: () => import("./views/CaseFinished.vue"),
+      name: "Finished",
+    },
   ],
 });
 
