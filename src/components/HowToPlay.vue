@@ -1,17 +1,17 @@
 <template lang="">
     <section>
-        <img class="hero_camera" :class="{sculpture: openingPage === 'case'}" v-if="openingPage === 'home'" src="/src/assets/images/hero/camera.png" alt="">
-        <img class="hero_camera" :class="{sculpture: openingPage === 'case'}" v-if="openingPage === 'case'" src="/src/assets/images/howtoplay/sculpture.png" alt="">
-        <img class="dnevnik" :class="{kartinka: openingPage === 'case'}" v-if="openingPage === 'home'" src="/src/assets/images/howtoplay/dnevnik.png"  alt="">
-        <img class="dnevnik" :class="{kartinka: openingPage === 'case'}" v-if="openingPage === 'case'" src="/src/assets/images/howtoplay/image.png"  alt="">
+        <img class="hero_camera" :class="{sculpture: openingPage === 'case'}" v-if="openingPage === 'home'" v-lazy="'/src/assets/images/hero/camera.png'" alt="">
+        <img class="hero_camera" :class="{sculpture: openingPage === 'case'}" v-if="openingPage === 'case'" v-lazy="'/src/assets/images/howtoplay/sculpture.png'" alt="">
+        <img class="dnevnik" :class="{kartinka: openingPage === 'case'}" v-if="openingPage === 'home'" v-lazy="'/src/assets/images/howtoplay/dnevnik.png'"  alt="">
+        <img class="dnevnik" :class="{kartinka: openingPage === 'case'}" v-if="openingPage === 'case'" v-lazy="'/src/assets/images/howtoplay/image.png'"  alt="">
         <div class="container">
             <div class="howToPlay">
-                <h1 class="howToPlay_header"><img ref="lupaText" src="/src/assets/images/howtoplay/lupahowtoplay.png" alt=""> КАК ИГРАТЬ?</h1>
+                <h1 class="howToPlay_header"><img ref="lupaText" v-lazy="'/src/assets/images/howtoplay/lupahowtoplay.png'" alt=""> КАК ИГРАТЬ?</h1>
                 <div class="howToPlay_tips"  :class="{ case: openingPage === 'case' }" >
                     <div class="howToPlay_tips_group">
                         <div class="howToPlay_tips_group_tip" v-for="rule in allRules.slice(0, 2)" :key="rule.id">
                             <div v-if="openingPage === 'home'" class="image">
-                                <img src="/src/assets/images/howtoplay/elipse1.jpeg" loading="lazy" alt="">
+                                <img v-lazy="'/src/assets/images/howtoplay/elipse1.jpeg'" alt="">
                             </div>
                             <div v-if="openingPage === 'case'" class="image_card"></div>
                         <div class="text">
