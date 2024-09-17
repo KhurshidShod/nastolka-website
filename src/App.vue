@@ -24,10 +24,10 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener('DOMContentLoaded', this.hideLoading);
+    window.addEventListener('load', this.hideLoading);
   },
   beforeDestroy() {
-    window.removeEventListener('DOMContentLoaded', this.hideLoading);
+    window.removeEventListener('load', this.hideLoading);
   },
   methods: {
     hideLoading() {
