@@ -98,6 +98,7 @@ section {
                 font-weight: 500;
                 line-height: normal;
                 cursor: pointer;
+
                 @media (max-width: 1100px) {
                     padding: 15px 35px;
                     font-size: 36px;
@@ -116,13 +117,21 @@ section {
                 &:first-child {
                     border-radius: 11px;
                     background: #005BFF;
-                    box-shadow: 0px 0px 45px 0px #005BFF;
+                    transition: .3s linear;
+
+                    &:hover {
+                        box-shadow: 0px 0px 45px 0px #005BFF;
+                    }
                 }
 
                 &:last-child {
                     border-radius: 11px;
                     background: linear-gradient(90deg, #E23AC3 0%, #791BED 100%);
-                    box-shadow: 0px 0px 45px 0px #AD20B5;
+                    transition: .3s linear;
+
+                    &:hover {
+                        box-shadow: 0px 0px 45px 0px #AD20B5;
+                    }
                 }
             }
         }

@@ -24,27 +24,15 @@ export default {
     };
   },
   mounted() {
-    this.checkAllLoaded();
-  },
-  methods: {
-    checkAllLoaded() {
-      const allImages = Array.from(document.images);
-      const imagesStillLoading = allImages.filter(img => !img.complete);
-
-      if (imagesStillLoading.length === 0) {
-        this.hideLoading();
-      } else {
-        imagesStillLoading.forEach(img => img.addEventListener('load', this.checkAllLoaded));
-      }
-
-      window.addEventListener('load', this.hideLoading);
-    },
-    hideLoading() {
-      this.isLoading = false;
-    }
+    window.addEventListener('load', this.hideLoading);
   },
   beforeDestroy() {
     window.removeEventListener('load', this.hideLoading);
+  },
+  methods: {
+    hideLoading() {
+      this.isLoading = false;
+    },
   }
 }
 </script>

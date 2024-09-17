@@ -111,7 +111,6 @@ export default {
             gap: 10px;
             border-radius: 11px;
             background: linear-gradient(180deg, #CF0000 0%, #650000 100%);
-            box-shadow: 0px 0px 45px 0px #9E0B0B;
             color: #FFF;
             text-align: center;
             font-family: 'Roboto';
@@ -119,6 +118,11 @@ export default {
             font-style: normal;
             font-weight: 500;
             line-height: normal;
+            transition: .3s linear;
+
+            &:hover {
+                box-shadow: 0px 0px 45px 0px #9E0B0B;
+            }
 
             @media (max-width: 450px) {
                 width: 80%;
