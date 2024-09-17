@@ -4,7 +4,7 @@
             <img class="lupa" src="/src/assets/images/best-detectives/d25914a2a059b9bdc9a4eb22ac03c56d.png" alt="">
             <img @click="$emit('close-pushup')" class="close" src="/src/assets/icons/nav-close.svg" alt="">
             <h1>Присоединяйтесь к нашим детективам прямо сейчас</h1>
-            <a href="https://t.me/rouqot" target="_blank">Авторизовать</a>
+            <a href="https://t.me/rouqot" target="_blank">Авторизоваться</a>
         </div>
     </div>
 </template>
