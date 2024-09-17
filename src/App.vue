@@ -24,17 +24,27 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener('load', this.hideLoading);
-    console.log(this.isLoading)
+    this.checkAllLoaded();
+  },
+  methods: {
+    checkAllLoaded() {
+      const allImages = Array.from(document.images);
+      const imagesStillLoading = allImages.filter(img => !img.complete);
+
+      if (imagesStillLoading.length === 0) {
+        this.hideLoading();
+      } else {
+        imagesStillLoading.forEach(img => img.addEventListener('load', this.checkAllLoaded));
+      }
+
+      window.addEventListener('load', this.hideLoading);
+    },
+    hideLoading() {
+      this.isLoading = false;
+    }
   },
   beforeDestroy() {
     window.removeEventListener('load', this.hideLoading);
-    console.log(this.isLoading)
-  },
-  methods: {
-    hideLoading() {
-      this.isLoading = false;
-    },
   }
 }
 </script>
